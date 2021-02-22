@@ -1,0 +1,29 @@
+@import 'variables';
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background-color: $headerBgColor;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+    h1{
+        padding-left: 15px;
+        margin-right: auto;
+    }
+    .navButtons{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 15%;
+        color: $navButtonsTextColor;
+        background-color: $transparent;
+        border: 0;
+    }
+    .navButtons:hover{
+        background-color: darken($headerBgColor, 3%);
+    }
+    .themeImages{
+
+    }
+}

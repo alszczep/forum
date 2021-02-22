@@ -1,0 +1,11 @@
+@use 'header';
+@use 'main';
+@import 'variables';
+
+html{
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: $bodyBgColor;
+    }
+}
