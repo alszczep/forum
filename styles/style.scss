@@ -1,6 +1,6 @@
-@use 'header';
-@use 'main';
-@import 'variables';
+@use 'scss/nav';
+@use 'scss/main';
+@import 'scss/variables';
 
 html{
     body{
