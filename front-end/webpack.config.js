@@ -30,23 +30,28 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			filename: "index.html",
-			template: path.resolve(__dirname, "src", "html", "index.html")
+			template: path.resolve(__dirname, "src", "html", "index.html"),
+			chunks: ["index"]
 		}),
 		new HtmlWebpackPlugin({
 			filename: "login.html",
-			template: path.resolve(__dirname, "src", "html", "login.html")
+			template: path.resolve(__dirname, "src", "html", "login.html"),
+			chunks: ["login"]
 		}),
 		new HtmlWebpackPlugin({
 			filename: "register.html",
-			template: path.resolve(__dirname, "src", "html", "register.html")
+			template: path.resolve(__dirname, "src", "html", "register.html"),
+			chunks: ["register"]
 		}),
 		new HtmlWebpackPlugin({
 			filename: "section.html",
-			template: path.resolve(__dirname, "src", "html", "section.html")
+			template: path.resolve(__dirname, "src", "html", "section.html"),
+			chunks: ["section"]
 		}),
 		new HtmlWebpackPlugin({
 			filename: "thread.html",
-			template: path.resolve(__dirname, "src", "html", "thread.html")
+			template: path.resolve(__dirname, "src", "html", "thread.html"),
+			chunks: ["thread"]
 		})
 	],
 	resolve: {

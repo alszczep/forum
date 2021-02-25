@@ -1,6 +1,9 @@
+import { initUi } from './../ui';
 import "./../../../styles/style.scss";
 import { getSections } from './modules/load-sections';
 import { createSections } from './modules/create-sections';
+initUi();
+
 const url = 'here-goes-api-url';
 
 const sections = getSections(url);
