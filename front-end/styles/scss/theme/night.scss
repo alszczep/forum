@@ -1,0 +1,25 @@
+@import 'nightVariables';
+
+body.night{
+    color: $globalFontColor;
+    background-color: $bodyBgColor;
+    nav{
+        background-color: $headerBgColor;
+        .navButtons:hover{
+            background-color: darken($headerBgColor, 4%);
+        }
+        .themeImages{
+            filter: invert(1);
+        }
+        .themeImages:hover{
+            filter: invert(0.90);
+        }
+    }
+    main{
+        background-color: $mainBgColor;
+        color: $mainFontColor;
+        section{
+            border-color: $sectionBorderColor;
+        }
+    }
+}
