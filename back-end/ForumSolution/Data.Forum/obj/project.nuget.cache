@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "rovs1JmU/I2qgJj8ro7F+JHzFscmZYAg8J9OqjO+CJCR00uw8f5/YDY2i7B3yYG3Xr+uLMZq/n0JCm8BzsTBEw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Michał\\ForumGit\\forum\\back-end\\ForumSolution\\Data.Forum\\Data.Forum.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Michał\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Michał\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
