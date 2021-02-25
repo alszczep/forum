@@ -1,11 +1,12 @@
 @use 'scss/nav';
 @use 'scss/main';
+@use 'scss/theme/day';
+@use 'scss/theme/night';
 @import 'scss/variables';
 
 html{
     body{
         margin: 0;
         padding: 0;
-        background-color: $bodyBgColor;
     }
 }

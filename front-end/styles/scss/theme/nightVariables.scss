@@ -1,0 +1,11 @@
+// style
+$bodyBgColor: #272727;
+$globalFontColor: white;
+
+// header
+$headerBgColor: #222222;
+
+// section
+$mainBgColor: #222222;
+$mainFontColor: $globalFontColor;
+$sectionBorderColor: lighten($mainBgColor, 2%);

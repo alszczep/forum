@@ -2,6 +2,9 @@
 
 ### A simple discussion forum
 
+### Contributors
+#### Mychnik -> back-end
+#### alszczep -> front-end
 
 ### Credits
 #### Moon icon: https://freeicons.io/avatar/moon-icon-1104
