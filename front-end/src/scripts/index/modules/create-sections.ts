@@ -12,7 +12,14 @@ const createSection = (section: Section): HTMLElement => {
     sectionElement.classList.add('section');
     sectionElement.appendChild(createSectionTitle(section.title));
     sectionElement.appendChild(createSectionDesc(section.desc));
+    sectionElement.addEventListener('click', sectionButtonHandler(section.title));
     return sectionElement;
+};
+const sectionButtonHandler = (title: string) => {
+    return () => {
+        localStorage.setItem('currentSection', title);
+        location.assign('./section.html');
+    }
 };
 const createSectionTitle = (title: string): HTMLElement => {
     const titleElement = document.createElement('h2');
