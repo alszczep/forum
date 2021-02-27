@@ -1,4 +1,6 @@
 @use 'main/error';
+@use 'main/threads';
+@use 'main/mainPage';
 @import 'variables';
 
 main{
@@ -8,8 +10,4 @@ main{
     border: 0px;
     border-radius: 2px;
     box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
-    .section{
-        border: 2px solid black;
-        margin: 3px;
-    }
 }
