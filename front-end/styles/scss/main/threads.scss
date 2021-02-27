@@ -1,0 +1,28 @@
+@import './../mixins';
+
+main.section{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    .threadsHeader{
+        @include clear-padding-margin;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    .pageNumbersWrapper{
+        align-self: flex-end;
+        @include clear-padding-margin;
+        margin-right: 10px;
+        .pageNumberButton{
+            margin: 2px;
+            display: inline;
+            border: 0;
+            border-radius: 3px;
+            background-color: #2e2e2e;
+        }
+    }
+    .threadsWrapper{
+        width: 100%;
+    }
+}
