@@ -7,7 +7,7 @@ namespace Data.Forum.Interfaces.IRepository
 {
     public interface IAsyncRepository <T> where T: class
     {
-        Task<IReadOnlyList<T>> GetListAsync();
+        Task<IReadOnlyList<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);
         Task<T> AddAsync(T entity);
         Task EditAsync(T entity);
