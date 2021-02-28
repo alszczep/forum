@@ -18,8 +18,21 @@ body.night{
     main{
         background-color: $mainBgColor;
         color: $mainFontColor;
+        
+    }
+    main.mainPage{
         section{
             border-color: $sectionBorderColor;
+        }
+    }
+    main.section{
+        .pageNumbersWrapper{
+            .pageNumberButton{
+                background-color: $pageNumberButtonColor;
+            }
+            .pageList{
+                color: $mainFontColor;
+            }
         }
     }
 }
