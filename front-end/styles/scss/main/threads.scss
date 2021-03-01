@@ -1,30 +1,11 @@
 @import './../mixins';
 
 main.section{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    @include page-numbers-and-flexbox;
     .threadsHeader{
         @include clear-padding-margin;
         margin-left: 10px;
         margin-top: 10px;
-    }
-    .pageNumbersWrapper{
-        align-self: flex-end;
-        @include clear-padding-margin;
-        margin-right: 10px;
-        .pageNumberButton{
-            margin: 2px;
-            display: inline;
-            border: 0;
-            border-radius: 3px;
-        }
-        .pageList{
-            .pageListOption{
-
-            }
-        }
     }
     .threadsWrapper{
         display: flex;
@@ -36,12 +17,11 @@ main.section{
             border: 2px solid black;
             border-radius: 3px;
             margin: 3px;
-            width: 100%;
             padding: 3px;
             .threadHeader{
 
             }
-            .commentNumber{
+            .author{
                 font-style: italic;
             }
         }
