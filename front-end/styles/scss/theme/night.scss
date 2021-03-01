@@ -25,13 +25,31 @@ body.night{
             border-color: $sectionBorderColor;
         }
     }
-    main.section{
+    main.section, main.thread{
         .pageNumbersWrapper{
             .pageNumberButton{
                 background-color: $pageNumberButtonColor;
             }
             .pageList{
                 color: $mainFontColor;
+            }
+        }
+    }
+    main.thread{
+        .commentsWrapper{
+            .commentElement{
+                background-color: $commentElementBgColor;
+                .userBox{
+                    background-color: $userBoxBgColor;
+                }
+                .contentBox{
+                    .contentInfo{
+                        background-color: $contentInfoBgColor;
+                    }
+                    .contentText{
+                        background-color: $contentTextBgColor;
+                    }
+                }
             }
         }
     }

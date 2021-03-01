@@ -1,6 +1,6 @@
-import { createThreadsElement } from './modules/create-threads-element';
 import { initUi } from './../ui';
 import { createErrorElement } from './../_modules/create-error-element';
+import { createThreadsElement } from './modules/create-threads-element';
 initUi();
 
 const mainElement: HTMLElement = document.querySelector('main')!;

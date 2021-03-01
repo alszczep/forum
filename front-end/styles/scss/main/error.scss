@@ -1,5 +1,5 @@
 @import '../mixins';
 
 main.error{
-    @include flex-box-column-center;
+    @include flex-box(column, center, center);
 }   

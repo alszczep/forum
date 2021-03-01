@@ -1,7 +1,9 @@
 @use 'main/error';
 @use 'main/threads';
 @use 'main/mainPage';
+@use 'main/comments';
 @import 'variables';
+@import 'mixins';
 
 main{
     margin: 10px;
