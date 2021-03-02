@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Data.Forum.Repository
 {
-    public class BaseRepository<T> : IAsyncRepository<T> where T : class
+    public class BaseRepository<T> : IAsyncRepository<T> where T : class //implementacja podstawowego repo
     {
         protected readonly ForumDbContext _dbcontext;
         public BaseRepository(ForumDbContext dbContext)
@@ -31,7 +31,7 @@ namespace Data.Forum.Repository
 
         public async Task EditAsync(T entity)
         {
-            //IMPLEMENTACJE DAĆ HERE
+            _dbcontext.Entry(entity).State = EntityState.Modified;
             await _dbcontext.SaveChangesAsync();
         }
 
