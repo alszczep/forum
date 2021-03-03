@@ -1,0 +1,7 @@
+@import './../mixins';
+
+main.login{
+    form{
+        @include flex-box(column, flex-start, center);
+    }
+}
