@@ -22,9 +22,8 @@ export const createSections = async () => {
     });
 };
 const createSection = (section: Section): HTMLElement => {
-    const sectionElement = document.createElement('section');
+    const sectionElement = createElement('section', ['section']);
     let elements: HTMLElement[] = [];
-    sectionElement.classList.add('section');
     elements.push((createElement('h2', ['sectionTitle'], section.title)));
     elements.push((createElement('h4', ['sectionDesc'], section.desc)));
     appendChildren(sectionElement, elements);
