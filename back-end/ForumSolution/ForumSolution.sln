@@ -9,11 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{BD30517D-A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{CE7F12BE-6CD1-4CE5-88C1-75A302448D39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Forum", "Data.Forum\Data.Forum.csproj", "{8017D3A0-910C-4238-981B-DF8501D33BC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Forum", "Data.Forum\Data.Forum.csproj", "{8017D3A0-910C-4238-981B-DF8501D33BC4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{D6E82C89-1DD3-4290-B00B-336DA67D3C65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Forum", "API.Forum\API.Forum.csproj", "{D9B2FD7D-CF2F-4AFD-8508-7295CC99CBDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API.Forum", "API.Forum\API.Forum.csproj", "{D9B2FD7D-CF2F-4AFD-8508-7295CC99CBDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

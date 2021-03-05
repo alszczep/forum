@@ -1,5 +1,5 @@
 ﻿using Data.Forum.Entities;
-using Data.Forum.Interfaces.IPost;
+using Data.Forum.Interfaces.IRepository;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
