@@ -3,6 +3,7 @@ import { Comment } from './../_interfaces/Comment';
 import { THREADS_PER_PAGE } from './../section/modules/create-threads-element';
 import { COMMENTS_PER_PAGE } from './../thread/modules/create-thread';
 
+// used for reloading threads and comments lists when changing a page
 export const reloadList = (pageList, currentPage: {number: number}, pagesInfo: {pages: number, lastPageThreads: number}, list: (Thread[] | Comment[])) => {
     return () => {
         currentPage.number = parseInt(pageList.value);
