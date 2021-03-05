@@ -8,6 +8,6 @@ namespace Data.Forum.Interfaces.IRepository
 {
    public interface IPostRepository : IAsyncRepository<Post> //rozszerzenie podstawowego repo
     {
-        Task<List<Post>> GetPostWithCommets();
+        Task<Post> GetPostWithCommets(int id);
     }
 }
