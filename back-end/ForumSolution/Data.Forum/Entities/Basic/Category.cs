@@ -9,6 +9,7 @@ namespace Data.Forum.Entities
     {
         [Key]
         public int CategoryId { get; set; }
+        [Required]
         public string Name { get; set; }
         public ICollection<Post> Posts { get; set; }
 

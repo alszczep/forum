@@ -1,4 +1,5 @@
-﻿using Data.Forum.Entities;
+﻿using Data.Forum;
+using Data.Forum.Entities;
 using Data.Forum.Entities.Mapped;
 using Data.Forum.Interfaces.IRepository;
 using Data.Forum.Repository;
@@ -16,9 +17,11 @@ namespace API.Forum.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly ICategoryRepository _categoryrepo;
-        public CategoriesController(ICategoryRepository categoryrepo)
+        private readonly ForumDbContext _dbcontext;
+        public CategoriesController(ICategoryRepository categoryrepo,ForumDbContext dbcontext)
         {
             _categoryrepo = categoryrepo;
+            _dbcontext = dbcontext;
         }
         [HttpGet("all" , Name ="GetAllCategories")]
         public async Task<ActionResult<CategoryInList>> GetAllCategories()
@@ -29,10 +32,38 @@ namespace API.Forum.Controllers
 
         [HttpPost(Name = "AddCategory")]
 
-        public async Task<ActionResult<Category>> CreateCategory([FromBody] Category newCategory )
+        public async Task<ActionResult<Category>> CreateCategory([FromBody] CategoryInList newCategory )
         {
-            var brandNew = await _categoryrepo.AddAsync(newCategory);
+            await _categoryrepo.AddCategory(newCategory);
             return Ok();
+        }
+
+        [HttpPut(Name = "EditCategory")]
+        public async Task<ActionResult<CategoryInList>> EditCategory([FromBody] CategoryInList editedCategory)
+        {
+            await _categoryrepo.EditCategory(editedCategory);
+            return Ok();
+        }
+        
+
+        //[HttpDelete(Name = "DeleteCategory")]
+        //public async Task<ActionResult<CategoryInList>> DeleteCategory([FromBody] Category category)
+        //{
+        //    await _categoryrepo.DeleteAsync(category);
+        //    return Ok();
+        //}
+        [HttpDelete(Name = "DeleteCategory")]
+        public async Task<ActionResult<CategoryInList>> DeleteCategory(int id)
+        {
+            if (id == 0 || id == null)
+            {
+                return NoContent();
+            }
+            else {
+                var category = _dbcontext.Categories.FirstOrDefault<Category>(x => x.CategoryId == id);
+                await _categoryrepo.DeleteAsync(category);
+                return Ok();
+            }
         }
     } 
 }

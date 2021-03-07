@@ -11,5 +11,8 @@ namespace Data.Forum.Interfaces.IRepository
     {
         Task<Category> GetCategoriesWithPosts(int id);
         Task<List<CategoryInList>> GetCategoryInList();
+        Task EditCategory(CategoryInList passedData);
+        Task AddCategory(CategoryInList newData);
+        
     }
 }
