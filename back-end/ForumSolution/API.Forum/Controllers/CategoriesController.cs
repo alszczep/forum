@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace API.Forum.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Categories/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
     {
