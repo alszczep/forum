@@ -1,3 +1,4 @@
+import { createHeaderWrapper } from './create-header-wrapper';
 import { reloadList } from './../../_modules/reload-list';
 import { createPageNumbersElement, calculateNumberOfPages } from './../../_modules/create-page-numbers-element';
 import { createThreadsListElement } from './create-threads-list';
@@ -14,7 +15,7 @@ export const createThreadsElement = async (mainElement: HTMLElement) => {
     let currentPage = {number: 1};
     const pagesInfo = calculateNumberOfPages(threadList.length, THREADS_PER_PAGE); 
     appendChildren(mainElement, [
-        createElement('h1' , ['threadsHeader'], localStorage.getItem('currentSection')!),
+        createHeaderWrapper(),
         createPageNumbersElement(pagesInfo.pages, currentPage, pagesInfo, threadList),
         createThreadsListElement(pagesInfo, currentPage, threadList),
         createPageNumbersElement(pagesInfo.pages, currentPage, pagesInfo, threadList)
