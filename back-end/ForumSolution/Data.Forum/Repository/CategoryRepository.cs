@@ -31,5 +31,21 @@ namespace Data.Forum.Repository
             return  _mapper.Map<List<CategoryInList>>(result);
         }
 
+        public async Task EditCategory(CategoryInList passsedData)
+        {
+           var result= _mapper.Map<Category>(passsedData);
+            await EditAsync(result);
+        }
+
+        public async Task AddCategory(CategoryInList newData)
+        {
+            var result = _mapper.Map<Category>(newData);
+            await AddAsync(result);
+        }
+
+        //var result = _mapper.Map<Category>(newCategory);
+        //await AddAsync(result);
+
+
     }
 }
