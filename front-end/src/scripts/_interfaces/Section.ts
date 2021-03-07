@@ -1,4 +1,4 @@
 export interface Section{
-    title: string;
-    desc: string;
+    categoryId: number;
+    name: string;
 }
