@@ -33,6 +33,15 @@ namespace API.Forum
             services.AddDataForumService(Configuration);
             services.AddDbContext<ForumDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
+            
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    //Tutaj w parametrze dodaj "http://localhost:port"
+                    builder.WithOrigins("https://localhost:44384/");
+                });
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API.Forum", Version = "v1" });
@@ -52,7 +61,7 @@ namespace API.Forum
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
