@@ -39,7 +39,8 @@ namespace API.Forum
                 options.AddDefaultPolicy(builder =>
                 {
                     //Tutaj w parametrze dodaj "http://localhost:port"
-                    builder.WithOrigins("https://localhost:44384/");
+                    builder.WithOrigins(Configuration.GetSection("AllowedOrigins").Get<string[]>())
+                    .WithMethods("GET","POST","PUT","DELETE");
                 });
             });
             services.AddSwaggerGen(c =>
