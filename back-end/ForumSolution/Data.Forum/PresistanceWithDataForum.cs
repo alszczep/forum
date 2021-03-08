@@ -17,7 +17,8 @@ namespace Data.Forum
             services.AddDbContext<ForumDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));
-            services.AddScoped<ICategoryRepository,CategoryRepository> ();
+            services.AddScoped<ICategoryRepository,CategoryRepository>();
+            services.AddScoped<IPostRepository, PostRepository>();
 
             return services;
         }

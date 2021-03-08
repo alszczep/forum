@@ -12,6 +12,7 @@ namespace Data.Forum.AutoMapper
         public MappingProfile()
         {
             CreateMap<Category, CategoryInList>().ReverseMap();
+            CreateMap<Post, PostInList>().ReverseMap();
         }
     }
 }

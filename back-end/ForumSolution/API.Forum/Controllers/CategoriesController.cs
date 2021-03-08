@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace API.Forum.Controllers
 {
-    [Route("api/Categories/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
     {
@@ -30,7 +30,7 @@ namespace API.Forum.Controllers
             return Ok(all);
         }
 
-        [HttpPost(Name = "AddCategory")]
+        [HttpPost("add",Name = "AddCategory")]
 
         public async Task<ActionResult<Category>> CreateCategory([FromBody] CategoryInList newCategory )
         {
@@ -38,7 +38,7 @@ namespace API.Forum.Controllers
             return Ok();
         }
 
-        [HttpPut(Name = "EditCategory")]
+        [HttpPut("edit",Name = "EditCategory")]
         public async Task<ActionResult<CategoryInList>> EditCategory([FromBody] CategoryInList editedCategory)
         {
             await _categoryrepo.EditCategory(editedCategory);
@@ -52,7 +52,7 @@ namespace API.Forum.Controllers
         //    await _categoryrepo.DeleteAsync(category);
         //    return Ok();
         //}
-        [HttpDelete(Name = "DeleteCategory")]
+        [HttpDelete("delete", Name = "DeleteCategory")]
         public async Task<ActionResult<CategoryInList>> DeleteCategory(int id)
         {
             if (id == 0 || id == null)
@@ -60,8 +60,7 @@ namespace API.Forum.Controllers
                 return NoContent();
             }
             else {
-                var category = _dbcontext.Categories.FirstOrDefault<Category>(x => x.CategoryId == id);
-                await _categoryrepo.DeleteAsync(category);
+                await DeleteCategory(id);
                 return Ok();
             }
         }
