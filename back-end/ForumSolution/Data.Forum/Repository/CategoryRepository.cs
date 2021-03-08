@@ -5,6 +5,7 @@ using Data.Forum.Interfaces.IRepository;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -42,7 +43,11 @@ namespace Data.Forum.Repository
             var result = _mapper.Map<Category>(newData);
             await AddAsync(result);
         }
-
+        public async Task DeleteCategory(int id)
+        {
+            var category = _dbcontext.Categories.FirstOrDefault<Category>(x => x.CategoryId == id);
+            await DeleteAsync(category);
+        }
         //var result = _mapper.Map<Category>(newCategory);
         //await AddAsync(result);
 
