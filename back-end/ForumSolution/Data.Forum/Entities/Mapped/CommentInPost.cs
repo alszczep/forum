@@ -7,7 +7,7 @@ namespace Data.Forum.Entities.Mapped
    public class CommentInPost
     {
         public int CommentId { get; set; }
-        public string Author { get; set; }
+        public int AuthorId { get; set; }
         public string Content { get; set; }
         public DateTime Data { get; set; }
 
