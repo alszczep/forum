@@ -1,28 +1,33 @@
-import { Section } from '../../_interfaces/Section';
+import { appendChildren } from './../../_modules/append-children';
+import { createElement } from './../../_modules/create-element';
+import { fetchData } from './../../_modules/fetch-data';
+import { Section } from './../../_interfaces/Section';
 
-export const createSections = (sectionList:[Section]) => {
-    const mainContentElement = document.querySelector('main');
-    if(mainContentElement)
-        sectionList.forEach((element) => {
-            mainContentElement.appendChild(createSection(element));
-        });
+const url = 'https://localhost:44384/api/comments/all';
+
+export const createSections = async () => {
+    const sectionList: Section[] = await fetchData(url);
+    /*const sectionList = [
+            {categoryId: 1, name: 'section one description'}
+    ];*/
+    const mainContentElement = document.querySelector('main')!;
+    mainContentElement.classList.add('mainPage');
+    sectionList.forEach((element) => {
+        mainContentElement.appendChild(createSection(element));
+    });
 };
 const createSection = (section: Section): HTMLElement => {
-    const sectionElement = document.createElement('section');
-    sectionElement.classList.add('section');
-    sectionElement.appendChild(createSectionTitle(section.title));
-    sectionElement.appendChild(createSectionDesc(section.desc));
+    const sectionElement = createElement('section', ['section']);
+    let elements: HTMLElement[] = [];
+    elements.push((createElement('h2', ['sectionTitle'], section.name)));
+    elements.push((createElement('h4', ['sectionDesc'], section.categoryId)));
+    appendChildren(sectionElement, elements);
+    sectionElement.addEventListener('click', sectionButtonHandler(section.categoryId));
     return sectionElement;
 };
-const createSectionTitle = (title: string): HTMLElement => {
-    const titleElement = document.createElement('h2');
-    titleElement.classList.add('sectionTitle');
-    titleElement.textContent = title;
-    return titleElement;
-};
-const createSectionDesc = (desc: string): HTMLElement => {
-    const descElement = document.createElement('h4');
-    descElement.classList.add('sectionDesc');
-    descElement.textContent = desc;
-    return descElement;
+const sectionButtonHandler = (categoryId: number) => {
+    return () => {
+        localStorage.setItem('currentSection', categoryId.toString());
+        location.assign('./section.html');
+    }
 };

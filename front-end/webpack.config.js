@@ -24,6 +24,13 @@ module.exports = {
 				test: /\.tsx?$/,
 				use: 'ts-loader',
 				exclude: [/node_modules/]
+			},
+			{
+				test: /\.(jpe?g|png|gif|svg)$/i, 
+				loader: 'file-loader',
+				options: {
+					name: '/images/[name].[ext]'
+				}
 			}
 		]
 	},
@@ -35,22 +42,22 @@ module.exports = {
 		}),
 		new HtmlWebpackPlugin({
 			filename: "login.html",
-			template: path.resolve(__dirname, "src", "html", "login.html"),
+			template: path.resolve(__dirname, "src", "html", "index.html"),
 			chunks: ["login"]
 		}),
 		new HtmlWebpackPlugin({
 			filename: "register.html",
-			template: path.resolve(__dirname, "src", "html", "register.html"),
+			template: path.resolve(__dirname, "src", "html", "index.html"),
 			chunks: ["register"]
 		}),
 		new HtmlWebpackPlugin({
 			filename: "section.html",
-			template: path.resolve(__dirname, "src", "html", "section.html"),
+			template: path.resolve(__dirname, "src", "html", "index.html"),
 			chunks: ["section"]
 		}),
 		new HtmlWebpackPlugin({
 			filename: "thread.html",
-			template: path.resolve(__dirname, "src", "html", "thread.html"),
+			template: path.resolve(__dirname, "src", "html", "index.html"),
 			chunks: ["thread"]
 		})
 	],
