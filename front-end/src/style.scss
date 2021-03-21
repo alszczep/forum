@@ -1,0 +1,12 @@
+@import 'styles/nav';
+@import 'styles/main';
+@import 'styles/theme/day';
+@import 'styles/theme/night';
+@import 'styles/variables';
+
+html{
+    body{
+        margin: 0;
+        padding: 0;
+    }
+}

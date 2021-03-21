@@ -1,0 +1,31 @@
+@import 'dayVariables';
+
+body.day{
+    color: $globalFontColor;
+    background-color: $bodyBgColor;
+    nav{
+        background-color: $headerBgColor;
+        .loginLink:hover, .registerLink:hover{
+            background-color: darken($headerBgColor, 4%);
+        }
+        .loginLink, .registerLink, .mainLink{
+            color: $globalFontColor;
+        }
+        .themeImages{
+            filter: invert(1);
+        }
+        .themeImages:hover{
+            filter: invert(0.95);
+        }
+    }
+    main{
+        background-color: $mainBgColor;
+        color: $mainFontColor;
+        section{
+            border-color: $sectionBorderColor;
+            a{
+                color: $mainFontColor;
+            }
+        }
+    }
+}

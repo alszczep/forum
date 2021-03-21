@@ -1,0 +1,42 @@
+@import './../mixins';
+
+main.threads{
+    @include page-numbers-and-flexbox;
+    .headerWrapper{
+        @include flex-box(row, flex-end, flex-start);
+        width: 100%;
+        margin-bottom: 10px;
+        .threadsHeader{
+            @include clear-padding-margin;
+            margin-left: 10px;
+            margin-top: 10px;
+            margin-right: auto;
+        }
+        .newThreadButton{
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+    }
+    .threadsWrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-content: flex-start;
+        width: 100%;
+        a{
+            text-decoration: none;
+            .threadElement{
+                border: 2px solid black;
+                border-radius: 3px;
+                margin: 3px;
+                padding: 3px;
+                .threadHeader{
+                
+                }
+                .author{
+                    font-style: italic;
+                }
+            }
+        }
+    }
+}
