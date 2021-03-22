@@ -6,6 +6,7 @@ import Nav from './components/shared/Nav';
 import Thread from './components/Thread';
 import Register from './components/Register';
 import Threads from './components/Threads';
+import NewThread from './components/NewThread';
 
 const App: FC = (): JSX.Element => {
   let theme = window.localStorage.getItem('theme');
@@ -25,6 +26,9 @@ const App: FC = (): JSX.Element => {
         </Route>
         <Route path='/threads/:categoryId'>
           <Threads/>
+        </Route>
+        <Route path='/newThread/:categoryId'>
+          <NewThread/>
         </Route>
         <Route path='/thread/:postId'>
           <Thread/>
