@@ -6,7 +6,7 @@ body.day{
     nav{
         background-color: $headerBgColor;
         .loginLink:hover, .registerLink:hover{
-            background-color: darken($headerBgColor, 4%);
+            background-color: darken($headerBgColor, 3%);
         }
         .loginLink, .registerLink, .mainLink{
             color: $globalFontColor;
@@ -24,6 +24,57 @@ body.day{
         section{
             border-color: $sectionBorderColor;
             a{
+                color: $mainFontColor;
+            }
+        }
+        input, textarea, button{
+            border: 0px;
+            color: $mainFontColor;
+            background-color: $pageNumberButtonColor;
+        }
+        input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover, button:hover{
+            background-color: darken($pageNumberButtonColor, 2%);
+        }
+        input[type=submit]:focus, input[type=reset]:focus, input[type=button]:focus, button:focus{
+            background-color: darken($pageNumberButtonColor, 3%);
+        }
+        input, textarea, button, .pageNumberButton{
+            box-shadow: 0px 0px 1px 1px lighten($pageNumberButtonColor, 4%);
+        }
+    }
+    main.mainPage{
+        section{
+            color: $mainFontColor;
+            border-color: $sectionBorderColor;
+            background-color: $sectionBgColor;
+        }
+        section:hover{
+            background-color: darken($sectionBgColor, 1%);
+        }
+    }
+    main.threads{
+        section.threadsWrapper{
+            a{  
+                section{
+                    color: $mainFontColor;
+                    background-color: $sectionBgColor;
+                    border-color: $sectionBorderColor;
+                }
+                section:hover{
+                    background-color: darken($sectionBgColor, 1%);
+                }
+            }
+        }
+    }
+    main.threads, main.thread{
+        .pageNumbersWrapper{
+            .pageNumberButton{
+                background-color: $pageNumberButtonColor;
+            }
+            .pageNumberButton:hover{
+                background-color: darken($pageNumberButtonColor, 2%);
+            }
+            .pageList{
                 color: $mainFontColor;
             }
         }

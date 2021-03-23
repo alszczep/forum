@@ -8,8 +8,10 @@ $headerBgColor: #222222;
 // section
 $mainBgColor: #222222;
 $mainFontColor: $globalFontColor;
-$sectionBorderColor: lighten($mainBgColor, 2%);
+$sectionBorderColor: darken($mainBgColor, 1%);
+$sectionBgColor: #2b2b2b;
 $pageNumberButtonColor: #2e2e2e;
+
 //  thread
 $commentElementBgColor: #242424;
 $userBoxBgColor: #2b2b2b;

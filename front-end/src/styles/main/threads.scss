@@ -12,9 +12,12 @@ main.threads{
             margin-top: 10px;
             margin-right: auto;
         }
-        .newThreadButton{
+        a{
             margin-top: 10px;
-            margin-right: 10px;
+            margin-right: 3px;
+            .newThreadButton{
+                border: 0px;
+            }
         }
     }
     .threadsWrapper{
@@ -26,16 +29,22 @@ main.threads{
         a{
             text-decoration: none;
             .threadElement{
-                border: 2px solid black;
-                border-radius: 3px;
+                border-radius: 5px;
                 margin: 3px;
-                padding: 3px;
-                .threadHeader{
-                
+                margin-bottom: 10px;
+                padding: 10px;
+                h2{
+                    margin-top: 0px;
                 }
-                .author{
+                h4{
+                    margin: 0px;
                     font-style: italic;
                 }
+            }
+        }
+        a:first-of-type{
+            .threadElement{
+                margin-top: 10px;
             }
         }
     }
