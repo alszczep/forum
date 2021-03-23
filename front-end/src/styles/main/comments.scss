@@ -2,6 +2,10 @@
 
 main.thread{
     @include page-numbers-and-flexbox;
+    .threadHeader{
+        margin: 10px;
+        margin-bottom: 0px;
+    }
     .commentsWrapper{
         @include flex-box(column, flex-start, flex-start);
         border-radius: 5px;

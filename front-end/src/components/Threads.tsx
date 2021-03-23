@@ -6,6 +6,7 @@ import SingleThread from './threads/SingleThread';
 import Header from './threads/Header';
 import PageSelect from './shared/PageSelect';
 import { calculateInitialState, pageReducer } from '../modules/calculate-number-of-pages';
+import Loading from './shared/Loading';
 
 const url = 'https://localhost:44384/api/post/allFromCategory?categoryId=';
 const THREADS_PER_PAGE = 5;
@@ -44,9 +45,7 @@ const Threads: FC= (): JSX.Element => {
             <PageSelect {...pageSelectProps}/>
         </main>)
     }
-    return (<main className='threads'>
-        loading
-    </main>)
+    return (<Loading/>);
 }
 
 export default Threads;

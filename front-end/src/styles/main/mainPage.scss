@@ -2,10 +2,21 @@ main.mainPage{
     a{
         text-decoration: none;
         .singleCategory{
-            padding-left: 10px;
-            border: 2px solid black;
+            border-radius: 5px;
             margin: 3px;
-            
+            margin-bottom: 10px;
+            padding: 10px;
+            h2{
+                margin-top: 0px;
+            }
+            h4{
+                margin: 0px;
+            } 
+        }
+    }
+    a:last-of-type{
+        .singleCategory{
+            margin-bottom: 3px;
         }
     }
 }

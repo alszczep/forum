@@ -6,7 +6,7 @@ body.night{
     nav{
         background-color: $headerBgColor;
         .loginLink:hover, .registerLink:hover{
-            background-color: darken($headerBgColor, 4%);
+            background-color: lighten($headerBgColor, 2%);
         }
         .loginLink, .registerLink, .mainLink{
             color: $globalFontColor;
@@ -24,17 +24,46 @@ body.night{
         a{
             color: $mainFontColor;
         }
-        
+        input, textarea, button{
+            color: $mainFontColor;
+            background-color: lighten($mainBgColor, 3%);
+        }
+        input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover, button:hover{
+            background-color: lighten($mainBgColor, 4%);
+        }
+        input[type=submit]:focus, input[type=reset]:focus, input[type=button]:focus, button:focus{
+            background-color: lighten($mainBgColor, 5%);
+        }
     }
     main.mainPage{
         section{
             border-color: $sectionBorderColor;
+            background-color: $sectionBgColor;
+        }
+        section:hover{
+            background-color: lighten($sectionBgColor, 1%);
         }
     }
-    main.section, main.thread{
+    main.threads{
+        section.threadsWrapper{
+            a{  
+                section{
+                    border-color: $sectionBorderColor;
+                    background-color: $sectionBgColor;
+                }
+                section:hover{
+                    background-color: lighten($sectionBgColor, 1%);
+                }
+            }
+        }
+    }
+    main.threads, main.thread{
         .pageNumbersWrapper{
             .pageNumberButton{
                 background-color: $pageNumberButtonColor;
+            }
+            .pageNumberButton:hover{
+                background-color: lighten($pageNumberButtonColor, 2%);
             }
             .pageList{
                 color: $mainFontColor;

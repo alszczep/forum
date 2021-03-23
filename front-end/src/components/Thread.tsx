@@ -3,8 +3,10 @@ import { useParams } from 'react-router';
 import { CommentInterface } from '../interfaces/CommentInterface';
 import { pageReducer, calculateInitialState } from '../modules/calculate-number-of-pages';
 import { fetchData } from '../modules/fetch-data';
+import Loading from './shared/Loading';
 import PageSelect from './shared/PageSelect';
 import Comment from './thread/Comment';
+import NewComment from './thread/NewComment';
 
 const url = 'https://jsonplaceholder.typicode.com/comments?postId=1';
 const COMMENTS_PER_PAGE = 5;
@@ -41,11 +43,10 @@ const Thread: FC= (): JSX.Element => {
                 {comments.map(item => item)}
             </section>
             <PageSelect {...pageSelectProps}/>
+            <NewComment/>
         </main>)
     }
-    return (<main className='threads'>
-        loading
-    </main>)
+    return (<Loading/>);
     
 }
 
