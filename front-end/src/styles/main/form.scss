@@ -20,6 +20,13 @@ main{
                 margin: 10px;
             }
         }
+        .validationErrorsWrapper{
+            width: 100%;
+            @include flex-box(column, center, center);
+            .validationErrors{
+                list-style-type: none;
+            }
+        }
     }
     input[type=text], input[type=email], input[type=password]{
         padding: 3px;

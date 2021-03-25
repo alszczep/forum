@@ -1,10 +1,5 @@
 import { FC, useRef } from 'react';
-import { PageStateInterface } from '../../interfaces/PageStateInterface';
-import { ActionInterface } from '../../interfaces/ActionInterface';
-
-interface PageSelectPropsInterface extends PageStateInterface{
-    dispatchPage: (args: ActionInterface) => void;
-}
+import { PageSelectPropsInterface } from '../../interfaces/PageSelectPropsInterface';
 
 const PageSelect: FC<PageSelectPropsInterface> = ({ dispatchPage, pages, lastPageElements, currentPage }): JSX.Element => {
     const selectRef = useRef<HTMLSelectElement>(null);
