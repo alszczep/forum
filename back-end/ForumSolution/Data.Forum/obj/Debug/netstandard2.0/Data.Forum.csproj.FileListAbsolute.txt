@@ -1,9 +1,0 @@
-C:\Users\Michał\ForumGit\forum\back-end\ForumSolution\Data.Forum\bin\Debug\netstandard2.0\Data.Forum.deps.json
-C:\Users\Michał\ForumGit\forum\back-end\ForumSolution\Data.Forum\bin\Debug\netstandard2.0\Data.Forum.dll
-C:\Users\Michał\ForumGit\forum\back-end\ForumSolution\Data.Forum\bin\Debug\netstandard2.0\Data.Forum.pdb
-C:\Users\Michał\ForumGit\forum\back-end\ForumSolution\Data.Forum\obj\Debug\netstandard2.0\Data.Forum.csprojAssemblyReference.cache
-C:\Users\Michał\ForumGit\forum\back-end\ForumSolution\Data.Forum\obj\Debug\netstandard2.0\Data.Forum.AssemblyInfoInputs.cache
-C:\Users\Michał\ForumGit\forum\back-end\ForumSolution\Data.Forum\obj\Debug\netstandard2.0\Data.Forum.AssemblyInfo.cs
-C:\Users\Michał\ForumGit\forum\back-end\ForumSolution\Data.Forum\obj\Debug\netstandard2.0\Data.Forum.csproj.CoreCompileInputs.cache
-C:\Users\Michał\ForumGit\forum\back-end\ForumSolution\Data.Forum\obj\Debug\netstandard2.0\Data.Forum.dll
-C:\Users\Michał\ForumGit\forum\back-end\ForumSolution\Data.Forum\obj\Debug\netstandard2.0\Data.Forum.pdb
