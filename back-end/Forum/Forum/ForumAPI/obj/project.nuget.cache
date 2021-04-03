@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UC0URGovx7lTae60i5qAlrLwUNsuNFfXNXclGD+yqnxpvL1KMyXrN6vyDcHZ459gX0UpKp9Kxy2thG1r5d9DeQ==",
+  "dgSpecHash": "opv/b2ARJX+9WO35HzXZlp+IwyVyF5gIEoiL6/JGeUCms5FpNFxc45Aqwkz7sgiiC7NnxAwqHXVsX53N9rOVAQ==",
   "success": true,
-  "projectFilePath": "E:\\Forum\\Forum\\ForumAPI\\ForumAPI.csproj",
+  "projectFilePath": "C:\\Users\\Michał\\ForumGit\\forum\\back-end\\Forum\\Forum\\ForumAPI\\ForumAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Michał\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Michał\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

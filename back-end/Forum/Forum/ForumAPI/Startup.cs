@@ -51,6 +51,15 @@ namespace ForumAPI
                 config.Password.RequireUppercase = false;
             }).AddEntityFrameworkStores<ForumDbContext>().AddDefaultTokenProviders();
 
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                    builder
+               .AllowAnyHeader()
+               .AllowAnyMethod()
+             );
+            });
+
             services.ConfigureApplicationCookie(config =>
             {
                 config.Cookie.Name = "Forum.Cookie";
@@ -84,6 +93,9 @@ namespace ForumAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
+
             app.UseAuthentication();
             app.UseAuthorization();
 

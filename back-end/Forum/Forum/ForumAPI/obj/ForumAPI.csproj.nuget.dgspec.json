@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Forum\\Forum\\ForumAPI\\ForumAPI.csproj": {}
+    "C:\\Users\\Michał\\ForumGit\\forum\\back-end\\Forum\\Forum\\ForumAPI\\ForumAPI.csproj": {}
   },
   "projects": {
-    "E:\\Forum\\Forum\\ForumAPI\\ForumAPI.csproj": {
+    "C:\\Users\\Michał\\ForumGit\\forum\\back-end\\Forum\\Forum\\ForumAPI\\ForumAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Forum\\Forum\\ForumAPI\\ForumAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Michał\\ForumGit\\forum\\back-end\\Forum\\Forum\\ForumAPI\\ForumAPI.csproj",
         "projectName": "ForumAPI",
-        "projectPath": "E:\\Forum\\Forum\\ForumAPI\\ForumAPI.csproj",
+        "projectPath": "C:\\Users\\Michał\\ForumGit\\forum\\back-end\\Forum\\Forum\\ForumAPI\\ForumAPI.csproj",
         "packagesPath": "C:\\Users\\Michał\\.nuget\\packages\\",
-        "outputPath": "E:\\Forum\\Forum\\ForumAPI\\obj\\",
+        "outputPath": "C:\\Users\\Michał\\ForumGit\\forum\\back-end\\Forum\\Forum\\ForumAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Michał\\AppData\\Roaming\\NuGet\\NuGet.Config",
