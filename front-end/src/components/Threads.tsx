@@ -8,7 +8,7 @@ import PageSelect from './shared/PageSelect';
 import { calculateInitialState, pageReducer } from '../modules/calculate-number-of-pages';
 import Loading from './shared/Loading';
 
-const url = 'https://localhost:44384/api/post/allFromCategory?categoryId=';
+const url = 'https://localhost:5001/api/post/allFromCategory?categoryId=';
 const THREADS_PER_PAGE = 5;
 
 const Threads: FC= (): JSX.Element => {
@@ -16,7 +16,7 @@ const Threads: FC= (): JSX.Element => {
     const { categoryId } = useParams<{categoryId: string}>();
     const [data, setData] = useState<ThreadInterface[]>([]);
     const getData = useCallback(async() => {
-        setData(await fetchData(`${url}${categoryId}`));
+        setData(await fetchData(`${url}${categoryId}`, 'GET'));
       }, [categoryId]) 
     useEffect(() => {
         getData()

@@ -1,6 +1,6 @@
 import { validate, MIN_CHARACTERS, errorTexts } from './../src/modules/validate';
 
-describe('validate function testing', () => {
+describe('validate function', () => {
     describe('login', () => {
         it('#1', () => {
             expect(validate({type: 'login', newValue: 'a'.repeat(MIN_CHARACTERS.login - 1)})).toStrictEqual({ passed: false, error: [errorTexts.login.length]});

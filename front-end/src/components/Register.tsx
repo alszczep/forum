@@ -1,15 +1,18 @@
 import { FC, useReducer, useRef, useState } from "react";
 import { ActionInterface } from "../interfaces/ActionInterface";
 import { RegisterInterface } from "../interfaces/RegisterInterface";
-import { ValidationReturnInterface } from "../interfaces/ValidationReturnInterface";
 import { validate } from "../modules/validate";
-import { v4 as generateKey } from 'uuid';
+import { fetchData } from "../modules/fetch-data";
+import { MD5 } from "crypto-js";
+import { convertStringToLi } from "../modules/convert-string-to-li";
+
+const url = 'https://localhost:5001/api/User/register';
 
 const registerInitialState: RegisterInterface = {
-    login: '',
+    userName: '',
     email: '',
     password: '',
-    passwordRepeat: ''
+    confirmPassword: ''
 }
 
 const registerReducer = (state: RegisterInterface, action: ActionInterface) => {
@@ -19,20 +22,12 @@ const registerReducer = (state: RegisterInterface, action: ActionInterface) => {
 const Register : FC = (): JSX.Element => {
     const [stateRegister, dispatchRegister] = useReducer(registerReducer, registerInitialState);
     const [errorList, setErrorList] = useState<JSX.Element[]>([]);
-    const loginRef = useRef<HTMLInputElement>(null);
+    const userNameRef = useRef<HTMLInputElement>(null);
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
-    const passwordRepeatRef = useRef<HTMLInputElement>(null);
-    const types = ['login', 'email', 'password', 'passwordRepeat'];
-    const refs = [loginRef, emailRef, passwordRef, passwordRepeatRef];
-    const convertStringToLi = (validationResult: ValidationReturnInterface): JSX.Element[] => {
-        if(!validationResult.passed && validationResult.error && validationResult.error.length > 0){
-            return validationResult.error.map((item, index) => {
-                return (<li key={generateKey()}>{item}</li>);
-            });
-        }
-        return [];
-    }
+    const confirmPasswordRef = useRef<HTMLInputElement>(null);
+    const types = ['userName', 'email', 'password', 'confirmPassword'];
+    const refs = [userNameRef, emailRef, passwordRef, confirmPasswordRef];
     const onInputChange = (type: string, ref: React.RefObject<HTMLInputElement>) => {
         return () => {
             if(ref && ref.current){
@@ -70,22 +65,23 @@ const Register : FC = (): JSX.Element => {
         if(newErrorList.length > 0)
             setErrorList(newErrorList);
         else{
-            console.log('registered: ', stateRegister);
+            let result = fetchData(url, 'POST', {...stateRegister, password: MD5(stateRegister.password).toString(), confirmPassword: MD5(stateRegister.confirmPassword).toString()});
+            console.log(result);
         }
     }
     return (<main className='register'>
         <form id='loginForm' onSubmit={onFormSubmit} noValidate>
             <section className='labelWrapper'>
-                <label className='formLabel' htmlFor='login'>Login</label>
+                <label className='formLabel' htmlFor='userName'>Login</label>
                 <label className='formLabel' htmlFor='email'>Email</label>
                 <label className='formLabel' htmlFor='password'>Password</label>
-                <label className='formLabel' htmlFor='passwordRepeat'>Repeat password</label>
+                <label className='formLabel' htmlFor='confirmPassword'>Confirm password</label>
             </section>
             <section className='inputWrapper'>
-                <input value={stateRegister.login} ref={loginRef} onChange={onInputChange('login', loginRef)} maxLength={30} className='formInput' id='login' name='login' type='text'/>
+                <input value={stateRegister.userName} ref={userNameRef} onChange={onInputChange('userName', userNameRef)} maxLength={30} className='formInput' id='userName' name='userName' type='text'/>
                 <input value={stateRegister.email} ref={emailRef} onChange={onInputChange('email', emailRef)} maxLength={320} className='formInput' id='email' name='email' type='email'/>
                 <input value={stateRegister.password} ref={passwordRef} onChange={onInputChange('password', passwordRef)} maxLength={30} className='formInput' id='password' name='password' type='password'/>
-                <input value={stateRegister.passwordRepeat} ref={passwordRepeatRef} onChange={onInputChange('passwordRepeat', passwordRepeatRef)} maxLength={30} className='formInput' id='passwordRepeat' name='passwordRepeat' type='password'/>
+                <input value={stateRegister.confirmPassword} ref={confirmPasswordRef} onChange={onInputChange('confirmPassword', confirmPasswordRef)} maxLength={30} className='formInput' id='confirmPassword' name='confirmPassword' type='password'/>
             </section>
             <section className='validationErrorsWrapper'>
                 <ul className='validationErrors'>

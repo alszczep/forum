@@ -1,7 +1,7 @@
 export interface CommentInterface{
+    commentId: number;
+    authorId: number;
+    content: string;
+    data: string;
     postId: number;
-    id: number;
-    name: string;
-    email: string;
-    body: string;
 }

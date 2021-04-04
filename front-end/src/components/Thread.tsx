@@ -8,7 +8,7 @@ import PageSelect from './shared/PageSelect';
 import Comment from './thread/Comment';
 import NewComment from './thread/NewComment';
 
-const url = 'https://jsonplaceholder.typicode.com/comments?postId=1';
+const url = 'https://localhost:5001/api/Comment/CommentsFromPost?postId=';
 const COMMENTS_PER_PAGE = 5;
 
 const Thread: FC= (): JSX.Element => {
@@ -16,8 +16,8 @@ const Thread: FC= (): JSX.Element => {
     const { postId } = useParams<{postId: string}>();
     const [data, setData] = useState<CommentInterface[]>([]);
     const getData = useCallback(async() => {
-        setData(await fetchData(`${url}`));
-      }, []) 
+        setData(await fetchData(`${url}${postId}`, 'GET'));
+      }, [postId]) 
     useEffect(() => {
         getData()
     }, [getData]);
@@ -33,7 +33,7 @@ const Thread: FC= (): JSX.Element => {
         const comments = Array.from({length: commentsLength}, (_, index) => {
             return (statePage.currentPage - 1) * COMMENTS_PER_PAGE + index;
         }).map((item) => {
-            return (<Comment key={data[item].id} {...data[item]}/>);
+            return (<Comment key={data[item].commentId} {...data[item]}/>);
         });
         const pageSelectProps = {dispatchPage, ...statePage};
         return (<main className='thread'>

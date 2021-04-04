@@ -4,12 +4,12 @@ import { fetchData } from "../modules/fetch-data";
 import SingleCategory from "./categories/SingleCategory"
 import Loading from "./shared/Loading";
 
-const url = 'https://localhost:44384/api/Categories/all';
+const url = 'https://localhost:5001/api/Categories/all';
 
 const Categories: FC = (): JSX.Element => {
     const [data, setData] = useState<CategoryInterface[]>([]);
     const getData = useCallback(async() => {
-        setData(await fetchData(url));
+        setData(await fetchData(url, 'GET'));
       }, []) 
     useEffect(() => {
         getData()
