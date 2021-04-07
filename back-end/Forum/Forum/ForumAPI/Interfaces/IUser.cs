@@ -9,8 +9,9 @@ namespace ForumAPI.Interfaces
 {
    public interface IUser
     {
-        Task RegisterUser(RegisterModel model);
-        Task LogInUser(LogInModel model);
+        Task<IdentityResult> RegisterUser(RegisterModel model);
+        Task<UserInfo> LogInUser(LogInModel model);
         Task LogOutUser();
+
     }
 }

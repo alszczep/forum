@@ -14,6 +14,6 @@ namespace ForumAPI.Interfaces.IRepository
         Task<List<PostInList>> GetPostsFromSpecfiedCategory(int id);
         Task DeletePostById(int Postid);
         Task EditPost(PostInList newPost);
-        Task AddPost(PostInList newPost);
+        Task<Post> AddPost(PostInList newPost);
     }
 }

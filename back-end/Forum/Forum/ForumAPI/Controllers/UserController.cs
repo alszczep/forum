@@ -24,20 +24,20 @@ namespace ForumAPI.Controllers
         }
         [HttpPost("register",Name ="Register")]
         [AllowAnonymous]
-        public async Task<IActionResult> Register([FromBody] RegisterModel user )
+        public async Task<ActionResult<IdentityResult>> Register([FromBody] RegisterModel user )
         {
-            await _uRepository.RegisterUser(user);
-            return Ok();
+           var result= await _uRepository.RegisterUser(user);
+            return Ok(result);
         }
         [HttpPost("login",Name ="LogIn")]
         [AllowAnonymous]
-        public async Task<IActionResult> LogIn([FromBody] LogInModel model)
+        public async Task<ActionResult<UserInfo>> LogIn([FromBody] LogInModel model)
         {
-            await _uRepository.LogInUser(model);
-            return Ok();
+            var info= await _uRepository.LogInUser(model);
+            return Ok(info);
         }
-        [HttpGet]
-        public async Task<IActionResult> LogOut()
+        [HttpGet("logout", Name = "LogOut")]
+        public async Task<ActionResult> LogOut()
         {
             await _uRepository.LogOutUser();
             return Ok();
