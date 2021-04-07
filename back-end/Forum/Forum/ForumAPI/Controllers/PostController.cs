@@ -29,7 +29,7 @@ namespace ForumProject.Controllers
         [HttpPost("add", Name = "AddNewPost")]
         public async Task<ActionResult<PostInList>> AddNewPost(PostInList newPost)
         {
-            await _postRepository.AddPost(newPost);
+           var result= await _postRepository.AddPost(newPost);
             return Ok();
         }
 

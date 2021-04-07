@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ForumAPI.Entities.Basic;
 using ForumAPI.Entities.Mapped;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace ForumAPI
             CreateMap<Category, CategoryInList>().ReverseMap();
             CreateMap<Post, PostInList>().ReverseMap();
             CreateMap<Comment, CommentInPost>().ReverseMap();
+            CreateMap<IdentityUser, UserInfo>().ReverseMap();
         }
     }
 }

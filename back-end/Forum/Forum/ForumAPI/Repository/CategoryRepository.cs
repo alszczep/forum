@@ -37,10 +37,11 @@ namespace ForumAPI.Repository
             await EditAsync(result);
         }
 
-        public async Task AddCategory(CategoryInList newData)
+        public async Task<Category> AddCategory(CategoryInList newData)
         {
             var result = _mapper.Map<Category>(newData);
             await AddAsync(result);
+            return result;
         }
         public async Task DeleteCategory(int id)
         {

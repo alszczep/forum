@@ -30,11 +30,12 @@ namespace ForumAPI.Repository
             var result = _dbcontext.Posts.Include(c => c.Comments).FirstOrDefaultAsync(i => i.PostId == id);
             return await result;
         }
-        public async Task AddPost(PostInList newPost)
+        public async Task<Post> AddPost(PostInList newPost)
         {
             var mappedNewPost = _mapper.Map<Post>(newPost);
             //await _dbcontext.AddAsync<Post>(mappedNewPost);
-            await AddAsync(mappedNewPost);
+            var response= await AddAsync(mappedNewPost);
+            return response;
         }
         public async Task EditPost(PostInList newPost)
         {

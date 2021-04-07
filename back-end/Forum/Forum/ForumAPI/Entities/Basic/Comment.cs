@@ -10,7 +10,7 @@ namespace ForumAPI.Entities.Basic
     {
         [Key]
         public int CommentId { get; set; }
-        public int AuthorId { get; set; }
+        public string AuthorData { get; set; }
         public string Content { get; set; }
         public DateTime Data { get; set; }
 

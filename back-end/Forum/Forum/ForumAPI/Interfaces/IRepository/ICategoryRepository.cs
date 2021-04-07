@@ -13,7 +13,7 @@ namespace ForumAPI.Interfaces.IRepository
         Task<CategoryInList> GetCategoryById(int id);
         Task<List<CategoryInList>> GetCategoryInList();
         Task EditCategory(CategoryInList passedData);
-        Task AddCategory(CategoryInList newData);
+        Task<Category> AddCategory(CategoryInList newData);
         Task DeleteCategory(int categoryId);
 
     }

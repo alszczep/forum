@@ -17,10 +17,11 @@ namespace ForumAPI.Repository
         {
             _mapper = mapper;
         }
-        public async Task AddComment(CommentInPost newComment)
+        public async Task<Comment> AddComment(CommentInPost newComment)
         {
             var result = _mapper.Map<Comment>(newComment);
             await AddAsync(result);
+            return result;
         }
 
         public async Task DeleteComment(int id)
