@@ -3,19 +3,25 @@ import { useRef } from "react";
 import { FC } from "react";
 import { fetchData } from "../modules/fetch-data";
 import { MD5 } from "crypto-js";
+import { useHistory } from "react-router-dom";
 
 const url = 'https://localhost:5001/api/User/login';
 
-const Login : FC = (): JSX.Element => {
+const Login : FC<any> = (props): JSX.Element => {
     const [userName, setUserName] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const userNameRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
+    const history = useHistory();
+    const getData = async() => {
+        props.setUserData({...(await fetchData(url, 'POST', {userName: userName, password: MD5(password).toString()})), userName: userName});
+
+        history.push('/');
+    }
     const onLoginFormSubmit = (event: any) => {
         event.preventDefault();
         if(userName !== '' && password !== ''){
-            let result = fetchData(url, 'POST', {userName: userName, password: MD5(password).toString()});
-            console.log(result);
+            getData();
         }
     }
     return (<main className='login'>

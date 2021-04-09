@@ -1,5 +1,5 @@
-import { ActionInterface } from './ActionInterface';
-import { PageStateInterface } from './PageStateInterface';
+import { ActionInterface } from '../ReducerActionInterface';
+import { PageStateInterface } from '../PageStateInterface';
 
 export interface PageSelectPropsInterface extends PageStateInterface{
     dispatchPage: (args: ActionInterface) => void;

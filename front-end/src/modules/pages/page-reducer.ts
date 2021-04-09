@@ -1,10 +1,5 @@
-import { ActionInterface } from './../interfaces/ActionInterface';
-import { PageStateInterface } from './../interfaces/PageStateInterface';
-
-export const calculateInitialState = (count: number, perPage: number) => {
-    let pages = Math.ceil(count/perPage);
-    return {pages: pages, lastPageElements: (count - (pages - 1) * perPage), currentPage: 1};
-};
+import { ActionInterface } from '../../interfaces/ReducerActionInterface';
+import { PageStateInterface } from '../../interfaces/PageStateInterface';
 
 export const pageReducer = (state: PageStateInterface | null, action: ActionInterface) => {
     switch(action.type){

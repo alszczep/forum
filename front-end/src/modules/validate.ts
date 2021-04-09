@@ -1,5 +1,5 @@
-import { ValidationReturnInterface } from './../interfaces/ValidationReturnInterface';
-import { ValidationArgsInterface } from './../interfaces/ValidationArgsInterface';
+import { ValidationReturnInterface } from '../interfaces/return/ValidationReturnInterface';
+import { ValidationArgsInterface } from '../interfaces/args/ValidationArgsInterface';
 
 export const MIN_CHARACTERS = {
     login: 3,
