@@ -3,7 +3,7 @@ export const fetchData = async (url: string, method: string, data?:any): Promise
     const response = await fetch(url, {
         method: method,
         mode: 'cors',
-        credentials: 'same-origin',
+        credentials: 'include',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'

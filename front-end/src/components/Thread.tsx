@@ -1,12 +1,13 @@
 import { FC, useCallback, useEffect, useReducer, useState } from 'react';
 import { useParams } from 'react-router';
 import { CommentInterface } from '../interfaces/CommentInterface';
-import { pageReducer, calculateInitialState } from '../modules/calculate-number-of-pages';
+import { pageReducer} from '../modules/pages/page-reducer';
 import { fetchData } from '../modules/fetch-data';
 import Loading from './shared/Loading';
 import PageSelect from './shared/PageSelect';
 import Comment from './thread/Comment';
 import NewComment from './thread/NewComment';
+import { calculatePagesInitialState } from '../modules/pages/calculate-pages-initial-state';
 
 const url = 'https://localhost:5001/api/Comment/CommentsFromPost?postId=';
 const COMMENTS_PER_PAGE = 5;
@@ -23,7 +24,7 @@ const Thread: FC= (): JSX.Element => {
     }, [getData]);
     useEffect(() => {
         if(data && data.length > 0){
-            dispatchPage({ type: 'UPDATE_STATE', payload: calculateInitialState(data.length, COMMENTS_PER_PAGE)});
+            dispatchPage({ type: 'UPDATE_STATE', payload: calculatePagesInitialState(data.length, COMMENTS_PER_PAGE)});
         }
     }, [data])
     if(data && data.length > 0 && statePage){

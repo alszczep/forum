@@ -5,8 +5,9 @@ import { ThreadInterface }  from "../interfaces/ThreadInterface";
 import SingleThread from './threads/SingleThread';
 import Header from './threads/Header';
 import PageSelect from './shared/PageSelect';
-import { calculateInitialState, pageReducer } from '../modules/calculate-number-of-pages';
+import { pageReducer } from '../modules/pages/page-reducer';
 import Loading from './shared/Loading';
+import { calculatePagesInitialState } from '../modules/pages/calculate-pages-initial-state';
 
 const url = 'https://localhost:5001/api/post/allFromCategory?categoryId=';
 const THREADS_PER_PAGE = 5;
@@ -23,7 +24,7 @@ const Threads: FC= (): JSX.Element => {
     }, [getData]);
     useEffect(() => {
         if(data && data.length > 0){
-            dispatchPage({ type: 'UPDATE_STATE', payload: calculateInitialState(data.length, THREADS_PER_PAGE)});
+            dispatchPage({ type: 'UPDATE_STATE', payload: calculatePagesInitialState(data.length, THREADS_PER_PAGE)});
         }
     }, [data])
     if(data && data.length > 0 && statePage){

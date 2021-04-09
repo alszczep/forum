@@ -1,5 +1,5 @@
 import { FC, useReducer, useRef, useState } from "react";
-import { ActionInterface } from "../interfaces/ActionInterface";
+import { ActionInterface } from "../interfaces/ReducerActionInterface";
 import { RegisterInterface } from "../interfaces/RegisterInterface";
 import { validate } from "../modules/validate";
 import { fetchData } from "../modules/fetch-data";
@@ -29,7 +29,6 @@ const Register : FC = (): JSX.Element => {
     const types = ['userName', 'email', 'password', 'confirmPassword'];
     const refs = [userNameRef, emailRef, passwordRef, confirmPasswordRef];
     const onInputChange = (type: string, ref: React.RefObject<HTMLInputElement>) => {
-        return () => {
             if(ref && ref.current){
                 dispatchRegister({type: type, payload: {newValue: ref.current.value}});
                 let validationResult;
@@ -40,7 +39,6 @@ const Register : FC = (): JSX.Element => {
                 if(validationResult && !validationResult.passed) setErrorList(convertStringToLi(validationResult));
                 else setErrorList([]);
             }
-        }
     }
     const onFormSubmit = (event: any) => {
         event.preventDefault();
@@ -78,10 +76,10 @@ const Register : FC = (): JSX.Element => {
                 <label className='formLabel' htmlFor='confirmPassword'>Confirm password</label>
             </section>
             <section className='inputWrapper'>
-                <input value={stateRegister.userName} ref={userNameRef} onChange={onInputChange('userName', userNameRef)} maxLength={30} className='formInput' id='userName' name='userName' type='text'/>
-                <input value={stateRegister.email} ref={emailRef} onChange={onInputChange('email', emailRef)} maxLength={320} className='formInput' id='email' name='email' type='email'/>
-                <input value={stateRegister.password} ref={passwordRef} onChange={onInputChange('password', passwordRef)} maxLength={30} className='formInput' id='password' name='password' type='password'/>
-                <input value={stateRegister.confirmPassword} ref={confirmPasswordRef} onChange={onInputChange('confirmPassword', confirmPasswordRef)} maxLength={30} className='formInput' id='confirmPassword' name='confirmPassword' type='password'/>
+                <input value={stateRegister.userName} ref={userNameRef} onChange={() => {onInputChange('userName', userNameRef)}} maxLength={30} className='formInput' id='userName' name='userName' type='text'/>
+                <input value={stateRegister.email} ref={emailRef} onChange={() => {onInputChange('email', emailRef)}} maxLength={320} className='formInput' id='email' name='email' type='email'/>
+                <input value={stateRegister.password} ref={passwordRef} onChange={() => {onInputChange('password', passwordRef)}} maxLength={30} className='formInput' id='password' name='password' type='password'/>
+                <input value={stateRegister.confirmPassword} ref={confirmPasswordRef} onChange={() => {onInputChange('confirmPassword', confirmPasswordRef)}} maxLength={30} className='formInput' id='confirmPassword' name='confirmPassword' type='password'/>
             </section>
             <section className='validationErrorsWrapper'>
                 <ul className='validationErrors'>
