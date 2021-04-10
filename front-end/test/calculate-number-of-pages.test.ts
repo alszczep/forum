@@ -1,17 +1,18 @@
-import { calculateInitialState, pageReducer } from './../src/modules/calculate-number-of-pages';
+import { pageReducer } from './../src/modules/pages/page-reducer';
+import { calculatePagesInitialState } from './../src/modules/pages/calculate-pages-initial-state';
 
 describe('initial state for useReducer with info about pages', () => {
     it('#1', () => {
-        expect(calculateInitialState(10, 3)).toStrictEqual({pages: 4, lastPageElements: 1, currentPage: 1});
+        expect(calculatePagesInitialState(10, 3)).toStrictEqual({pages: 4, lastPageElements: 1, currentPage: 1});
     })
     it('#2', () => {
-        expect(calculateInitialState(5, 5)).toStrictEqual({pages: 1, lastPageElements: 5, currentPage: 1});
+        expect(calculatePagesInitialState(5, 5)).toStrictEqual({pages: 1, lastPageElements: 5, currentPage: 1});
     })
     it('#3', () => {
-        expect(calculateInitialState(3, 5)).toStrictEqual({pages: 1, lastPageElements: 3, currentPage: 1});
+        expect(calculatePagesInitialState(3, 5)).toStrictEqual({pages: 1, lastPageElements: 3, currentPage: 1});
     })
     it('#4', () => {
-        expect(calculateInitialState(10, 1)).toStrictEqual({pages: 10, lastPageElements: 1, currentPage: 1});
+        expect(calculatePagesInitialState(10, 1)).toStrictEqual({pages: 10, lastPageElements: 1, currentPage: 1});
     })
 });
 describe('reducer function for useReducer with info about pages', () => {

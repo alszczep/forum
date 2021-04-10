@@ -1,8 +1,8 @@
 @import './../mixins';
 
-main.thread{
+main.comments{
     @include page-numbers-and-flexbox;
-    .threadHeader{
+    .commentsHeader{
         margin: 10px;
         margin-bottom: 0px;
     }

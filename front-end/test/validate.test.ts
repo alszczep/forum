@@ -1,18 +1,18 @@
 import { validate, MIN_CHARACTERS, errorTexts } from './../src/modules/validate';
 
 describe('validate function', () => {
-    describe('login', () => {
+    describe('userName', () => {
         it('#1', () => {
-            expect(validate({type: 'login', newValue: 'a'.repeat(MIN_CHARACTERS.login - 1)})).toStrictEqual({ passed: false, error: [errorTexts.login.length]});
+            expect(validate({type: 'userName', newValue: 'a'.repeat(MIN_CHARACTERS.userName - 1)})).toStrictEqual({ passed: false, error: [errorTexts.userName.length]});
         })
         it('#2', () => {
-            expect(validate({type: 'login', newValue: ''})).toStrictEqual({ passed: false, error: [errorTexts.login.length]});
+            expect(validate({type: 'userName', newValue: ''})).toStrictEqual({ passed: false, error: [errorTexts.userName.length]});
         })
         it('#3', () => {
-            expect(validate({type: 'login', newValue: 'a'.repeat(MIN_CHARACTERS.login)})).toStrictEqual({ passed: true});
+            expect(validate({type: 'userName', newValue: 'a'.repeat(MIN_CHARACTERS.userName)})).toStrictEqual({ passed: true});
         })
         it('#4', () => {
-            expect(validate({type: 'login', newValue: 'a'.repeat(MIN_CHARACTERS.login + 1)})).toStrictEqual({ passed: true});
+            expect(validate({type: 'userName', newValue: 'a'.repeat(MIN_CHARACTERS.userName + 1)})).toStrictEqual({ passed: true});
         })
     });
     describe('email', () => {
