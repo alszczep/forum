@@ -2,12 +2,12 @@ import { FC, useCallback, useEffect, useReducer, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchData } from '../modules/fetch-data';
 import { ThreadInterface }  from "../interfaces/ThreadInterface";
-import SingleThread from './threads/SingleThread';
 import Header from './threads/Header';
 import PageSelect from './shared/PageSelect';
 import { pageReducer } from '../modules/pages/page-reducer';
 import Loading from './shared/Loading';
 import { calculatePagesInitialState } from '../modules/pages/calculate-pages-initial-state';
+import { calculateListElements } from '../modules/calculate-list-elements';
 
 const url = 'https://localhost:5001/api/post/allFromCategory?categoryId=';
 const THREADS_PER_PAGE = 5;
@@ -28,20 +28,16 @@ const Threads: FC= (): JSX.Element => {
         }
     }, [data])
     if(data && data.length > 0 && statePage){
-        let threadsLength = 0;
-        if(statePage.currentPage === statePage.pages) threadsLength = statePage.lastPageElements;
-        else threadsLength = THREADS_PER_PAGE;
-        const threads = Array.from({length: threadsLength}, (_, index) => {
-            return (statePage.currentPage - 1) * THREADS_PER_PAGE + index;
-        }).map((item) => {
-            return (<SingleThread key={data[item].postId} {...data[item]}/>);
-        });
         const pageSelectProps = {dispatchPage, ...statePage};
         return (<main className='threads'>
             <Header/>
             <PageSelect {...pageSelectProps}/>
             <section className='threadsWrapper'>
-                {threads.map(item => item)}
+            {
+                (data && data.length > 0 && statePage)?
+                calculateListElements(statePage, THREADS_PER_PAGE, undefined, data).map(item => item):
+                <h2>No threads in this category.</h2>
+            }
             </section>
             <PageSelect {...pageSelectProps}/>
         </main>)

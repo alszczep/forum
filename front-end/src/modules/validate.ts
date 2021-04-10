@@ -2,15 +2,15 @@ import { ValidationReturnInterface } from '../interfaces/return/ValidationReturn
 import { ValidationArgsInterface } from '../interfaces/args/ValidationArgsInterface';
 
 export const MIN_CHARACTERS = {
-    login: 3,
+    userName: 3,
     email: 3,
     password: 6,
     passwordRepeat: 6
 }
 
 export const errorTexts = {
-    login: {
-        length: `Login has to be at least ${MIN_CHARACTERS.login} characters long`
+    userName: {
+        length: `Login has to be at least ${MIN_CHARACTERS.userName} characters long`
     },
     email: {
         length: `Email has to be at least ${MIN_CHARACTERS.email} characters long`,
@@ -28,9 +28,9 @@ export const errorTexts = {
 export const validate = ({ type, newValue, passwordValue }: ValidationArgsInterface): ValidationReturnInterface => {
     let error: string[] = [];
     switch(type){
-        case 'login':
-            if(newValue.length < MIN_CHARACTERS.login)
-                error.push(errorTexts.login.length);
+        case 'userName':
+            if(newValue.length < MIN_CHARACTERS.userName)
+                error.push(errorTexts.userName.length);
             break;
         case 'email':
             const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

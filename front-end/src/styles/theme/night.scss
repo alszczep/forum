@@ -44,6 +44,19 @@ body.night{
             background-color: lighten($sectionBgColor, 1%);
         }
     }
+    main.threads, main.comments{
+        .pageNumbersWrapper{
+            .pageNumberButton{
+                background-color: $pageNumberButtonColor;
+            }
+            .pageNumberButton:hover{
+                background-color: lighten($pageNumberButtonColor, 2%);
+            }
+            .pageList{
+                color: $mainFontColor;
+            }
+        }
+    }
     main.threads{
         section.threadsWrapper{
             a{  
@@ -57,20 +70,7 @@ body.night{
             }
         }
     }
-    main.threads, main.thread{
-        .pageNumbersWrapper{
-            .pageNumberButton{
-                background-color: $pageNumberButtonColor;
-            }
-            .pageNumberButton:hover{
-                background-color: lighten($pageNumberButtonColor, 2%);
-            }
-            .pageList{
-                color: $mainFontColor;
-            }
-        }
-    }
-    main.thread{
+    main.comments{
         .commentsWrapper{
             .commentElement{
                 background-color: $commentElementBgColor;

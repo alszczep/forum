@@ -7,16 +7,16 @@ const PageSelect: FC<PageSelectPropsInterface> = ({ dispatchPage, pages, lastPag
         return index + 1;
     });
     return (<ul className='pageNumbersWrapper'>
-        <li className='pageNumberButton' onClick={() => dispatchPage({type: 'MIN'})}>&lt;&lt;</li>
-        <li className='pageNumberButton' onClick={() => dispatchPage({type: 'DECREMENT'})}>&lt;</li>
+        <li className='pageNumberButton' onClick={() => {dispatchPage({type: 'MIN'})}}>&lt;&lt;</li>
+        <li className='pageNumberButton' onClick={() => {dispatchPage({type: 'DECREMENT'})}}>&lt;</li>
         <select className='pageList pageNumberButton' value={currentPage} ref={selectRef} 
         onChange={() => { if(selectRef && selectRef.current) dispatchPage({type: 'SET_PAGE', payload: parseInt(selectRef.current.value)})} }>
             {options.map((item) => {
                 return (<option key={item} value={item}>{item}</option>);
             })}
         </select>
-        <li className='pageNumberButton' onClick={() => dispatchPage({type: 'INCREMENT'})}>&gt;</li>
-        <li className='pageNumberButton' onClick={() => dispatchPage({type: 'MAX'})}>&gt;&gt;</li>
+        <li className='pageNumberButton' onClick={() => {dispatchPage({type: 'INCREMENT'})}}>&gt;</li>
+        <li className='pageNumberButton' onClick={() => {dispatchPage({type: 'MAX'})}}>&gt;&gt;</li>
     </ul>)
 }
 
