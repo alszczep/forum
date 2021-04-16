@@ -15,7 +15,7 @@ import { loadUserFromSessionStorage } from './modules/user/load-user-from-sessio
 
 const App: FC = (): JSX.Element => {
   const [userData, setUserData] = useState<UserDataInterface>();
-  const [theme, setTheme] = useState<string | null>(window.localStorage.getItem('theme'));
+  const [theme, setTheme] = useState<string | null>(window.localStorage.getItem('theme')? window.localStorage.getItem('theme'): 'day');
   useEffect(() => {
     changeTheme(theme);
   }, [theme])
@@ -26,7 +26,7 @@ const App: FC = (): JSX.Element => {
     if(userData) userToSessionStorage(userData)
   }, [userData])
   return (<Router>
-      <Nav setUserData={setUserData} userData={userData} setTheme={setTheme}/>
+      <Nav setUserData={setUserData} userData={userData} setTheme={setTheme} theme={theme!}/>
       <Switch>
         <Route path='/register'>
           <Register/>

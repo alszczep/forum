@@ -1,5 +1,6 @@
 @import 'day-variables';
 
+
 body.day{
     color: $globalFontColor;
     background-color: $bodyBgColor;
@@ -11,11 +12,16 @@ body.day{
         .loginLink, .registerLink, .mainLink{
             color: $globalFontColor;
         }
-        .themeImages{
-            filter: invert(1);
-        }
-        .themeImages:hover{
-            filter: invert(0.95);
+        section.themeImgWrapper{
+            background-color: darken($headerBgColor, 4%);
+            .themeCircle{
+                background-color: $headerBgColor;
+                border-color: lighten($headerBgColor, 3%);
+                right: 0px;
+            }
+            .themeImages{
+                filter: invert(1);
+            }
         }
     }
     main{
@@ -42,7 +48,7 @@ body.day{
             box-shadow: 0px 0px 1px 1px lighten($pageNumberButtonColor, 4%);
         }
     }
-    main.mainPage{
+    main.categories{
         section{
             color: $mainFontColor;
             border-color: $sectionBorderColor;

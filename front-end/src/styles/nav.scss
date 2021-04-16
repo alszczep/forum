@@ -1,5 +1,8 @@
 @import 'variables';
 @import 'mixins';
+@import 'theme/button-animation';
+
+$navHeight: 70px;
 
 nav{
     display: flex;
@@ -7,8 +10,11 @@ nav{
     justify-content: flex-end;
     align-items: center;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
-    height: 70px;
+    height: $navHeight;
     border-radius: 9999px;
+    margin-top: 3px;
+    margin-left: 5px;
+    margin-right: 5px;
     .mainLink, .loginLink, .registerLink{
         @include flex-box(column, center, center);
         @include clear-padding-margin;
@@ -19,17 +25,41 @@ nav{
         padding-left: 15px;
         padding-right: 15px;
         margin-right: auto;
+        .mainPageButton{
+            margin-left: 10px;
+            height: ($navHeight * 0.5);
+            width: ($navHeight * 0.5);
+        }
     }
     .loginLink, .registerLink{
         width: 15%;
         background-color: $transparent;
         border: 0;
     }
-    #dayThemeImg{
-        height: 50%;
-    }
-    #nightThemeImg{
-        height: 32%;
+    section.themeImgWrapper{
+        @include flex-box(row, center, center);
+        height: ($navHeight * 0.5);
         margin-right: 10px;
-    }
+        border-radius: 99999px;
+        position: relative;
+        .themeCircle{
+            position: absolute;
+            z-index: 10;
+            box-sizing: border-box;
+            height: ($navHeight * 0.5);
+            width: ($navHeight * 0.5);
+            border: 3px solid;
+            border-radius: 99999px;
+        }
+        #dayThemeImg{
+            height: ($navHeight * 0.5);
+            width: ($navHeight * 0.5);
+            margin-right: ($navHeight * 0.1);
+        }
+        #nightThemeImg{
+            height: ($navHeight * 0.325);
+            width: ($navHeight * 0.325);
+            margin-right: ($navHeight * 0.1);
+        }
+    }  
 }
