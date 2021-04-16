@@ -1,7 +1,8 @@
-@import './../mixins';
+@import './../components/page-select.scss';
 
 main.comments{
-    @include page-numbers-and-flexbox;
+    @include flex-box(column, flex-start, flex-start);
+    @include page-select;
     .commentsHeader{
         margin: 10px;
         margin-bottom: 0px;

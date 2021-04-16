@@ -1,0 +1,32 @@
+nav{
+    section.themeImgWrapper.night{
+        .themeCircle{
+            animation-name: nightThemeAnimation;
+            animation-duration: 0.5s;
+        }
+    }
+    section.themeImgWrapper.day{
+        .themeCircle{
+            animation-name: dayThemeAnimation;
+            animation-duration: 0.5s;
+        }
+    }
+}
+
+@keyframes nightThemeAnimation{
+    from{
+        left: 51.25%;
+    }
+    to{
+        left: 0px;
+    }
+}
+
+@keyframes dayThemeAnimation{
+    from{
+        left: 0px;
+    }
+    to{
+        left: 51.25%;
+    }
+}

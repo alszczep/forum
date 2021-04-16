@@ -16,7 +16,7 @@ const Categories: FC = (): JSX.Element => {
     }, [getData]);
     
     if(data && data.length > 0)
-        return (<main className='mainPage'>
+        return (<main className='categories'>
             {data.map((item: CategoryInterface) => {
                 return (
                     <Category key={item.categoryId} {...item}/>

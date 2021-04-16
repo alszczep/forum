@@ -11,11 +11,16 @@ body.night{
         .loginLink, .registerLink, .mainLink{
             color: $globalFontColor;
         }
-        .themeImages{
-            filter: invert(1);
-        }
-        .themeImages:hover{
-            filter: invert(0.95);
+        section.themeImgWrapper{
+            background-color: lighten($headerBgColor, 10%);
+            .themeCircle{
+                background-color: $headerBgColor;
+                border-color: lighten($headerBgColor, 3%);
+                left: 0px;
+            }
+            .themeImages{
+                filter: invert(1);
+            }
         }
     }
     main{
@@ -35,7 +40,7 @@ body.night{
             background-color: lighten($mainBgColor, 5%);
         }
     }
-    main.mainPage{
+    main.categories{
         section{
             border-color: $sectionBorderColor;
             background-color: $sectionBgColor;
