@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Michał\\ForumGit\\forum\\back-end\\Forum\\ForumAPI\\ForumAPI.csproj": {}
+    "C:\\Users\\Michał\\ForumGit\\forum\\back-end\\Forum\\src\\ForumAPI\\ForumAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Michał\\ForumGit\\forum\\back-end\\Forum\\ForumAPI\\ForumAPI.csproj": {
+    "C:\\Users\\Michał\\ForumGit\\forum\\back-end\\Forum\\src\\ForumAPI\\ForumAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Michał\\ForumGit\\forum\\back-end\\Forum\\ForumAPI\\ForumAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Michał\\ForumGit\\forum\\back-end\\Forum\\src\\ForumAPI\\ForumAPI.csproj",
         "projectName": "ForumAPI",
-        "projectPath": "C:\\Users\\Michał\\ForumGit\\forum\\back-end\\Forum\\ForumAPI\\ForumAPI.csproj",
+        "projectPath": "C:\\Users\\Michał\\ForumGit\\forum\\back-end\\Forum\\src\\ForumAPI\\ForumAPI.csproj",
         "packagesPath": "C:\\Users\\Michał\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Michał\\ForumGit\\forum\\back-end\\Forum\\ForumAPI\\obj\\",
+        "outputPath": "C:\\Users\\Michał\\ForumGit\\forum\\back-end\\Forum\\src\\ForumAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Michał\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -47,6 +47,14 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[8.1.1, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[10.0.4, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[10.0.4, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
