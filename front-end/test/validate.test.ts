@@ -14,6 +14,18 @@ describe('validate function', () => {
         it('#4', () => {
             expect(validate({type: 'userName', newValue: 'a'.repeat(MIN_CHARACTERS.userName + 1)})).toStrictEqual({ passed: true});
         })
+        it('#5', () => {
+            expect(validate({type: 'userName', newValue: '@'.repeat(MIN_CHARACTERS.userName + 1)})).toStrictEqual({ passed: false, error: [errorTexts.userName.correctness]});
+        })
+        it('#6', () => {
+            expect(validate({type: 'userName', newValue: '@'.repeat(MIN_CHARACTERS.userName - 1)})).toStrictEqual({ passed: false, error: [errorTexts.userName.correctness, errorTexts.userName.length]});
+        })
+        it('#7', () => {
+            expect(validate({type: 'userName', newValue: `a ${'a'.repeat(MIN_CHARACTERS.userName)}`})).toStrictEqual({ passed: false, error: [errorTexts.userName.correctness]});
+        })
+        it('#8', () => {
+            expect(validate({type: 'userName', newValue: `a${'a'.repeat(MIN_CHARACTERS.userName)}  `})).toStrictEqual({ passed: false, error: [errorTexts.userName.correctness]});
+        })
     });
     describe('email', () => {
         it('#1', () => {

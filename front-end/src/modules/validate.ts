@@ -10,7 +10,8 @@ export const MIN_CHARACTERS = {
 
 export const errorTexts = {
     userName: {
-        length: `Login has to be at least ${MIN_CHARACTERS.userName} characters long`
+        length: `Login has to be at least ${MIN_CHARACTERS.userName} characters long`,
+        correctness: 'Username can only consist of letters and digits. No symbols or whitespace allowed.'
     },
     email: {
         length: `Email has to be at least ${MIN_CHARACTERS.email} characters long`,
@@ -29,6 +30,9 @@ export const validate = ({ type, newValue, passwordValue }: ValidationArgsInterf
     let error: string[] = [];
     switch(type){
         case 'userName':
+            const userRegex = /^[a-zA-Z0-9]*$/g;
+            if(!userRegex.test(newValue))
+                error.push(errorTexts.userName.correctness);
             if(newValue.length < MIN_CHARACTERS.userName)
                 error.push(errorTexts.userName.length);
             break;

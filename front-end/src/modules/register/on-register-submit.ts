@@ -1,5 +1,5 @@
 import { RegisterInterface } from '../../interfaces/RegisterInterface';
-import { MD5 } from 'crypto-js';
+import { PBKDF2 } from 'crypto-js';
 import { fetchData } from '../fetch-data';
 import { convertStringToLi } from "../convert-string-to-li";
 import { validate } from "../validate";
@@ -29,7 +29,9 @@ export const onRegisterSubmit = async (event: any, stateRegister: RegisterInterf
     if(newErrorList.length > 0)
         setErrorList(newErrorList);
     else{
-        let result = await fetchData(url, 'POST', {...stateRegister, password: MD5(stateRegister.password).toString(), confirmPassword: MD5(stateRegister.confirmPassword).toString()});
+        //const salt = CryptoJS.lib.WordArray.random(128 / 8);
+        const salt = 'placeholder';
+        let result = await fetchData(url, 'POST', {...stateRegister, password: PBKDF2(stateRegister.password, salt).toString(), confirmPassword: PBKDF2(stateRegister.confirmPassword, salt).toString(), salt: salt});
         console.log(result);
         if(result.succeeded)
             history.push('/')

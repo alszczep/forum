@@ -24,7 +24,7 @@ main{
             width: 100%;
             @include flex-box(column, center, center);
             .validationErrors{
-                list-style-type: none;
+                list-style-type: square;
             }
         }
     }
@@ -65,5 +65,12 @@ main{
             margin-top: 10px;
             align-self: flex-end;
         }
+    }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active{
+        transition: background-color 9999999s;
+        -webkit-text-fill-color: #fff !important;
     }
 }
