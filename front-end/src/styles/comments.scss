@@ -1,0 +1,15 @@
+@import './comments/comment.scss';
+@import './comments/new-comment.scss';
+
+.comments{
+    @include flex-box(column, flex-start, flex-start);
+    &__header{
+        margin: 10px;
+        margin-bottom: 0px;
+    }
+    &__list{
+        @include flex-box(column, flex-start, flex-start);
+        border-radius: 5px;
+        width: 100%;
+    }
+}

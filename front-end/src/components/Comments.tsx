@@ -32,15 +32,15 @@ const Comments: FC= (): JSX.Element => {
         const pageSelectProps = {dispatchPage, ...statePage};
         return (
             <main 
-                className='comments'>
+                className='main comments'>
                 <h1 
-                    className='commentsHeader'>
+                    className='comments__header'>
                     {postId}
                 </h1>
                 <PageSelect 
                     {...pageSelectProps}/>
                 <section 
-                    className='commentsWrapper'>
+                    className='comments__list'>
                     {
                         (data.length > 0)?
                         calculateListElements(statePage, COMMENTS_PER_PAGE, data).map(item => item):

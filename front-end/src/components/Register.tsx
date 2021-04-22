@@ -12,89 +12,85 @@ const Register : FC = (): JSX.Element => {
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
     const confirmPasswordRef = useRef<HTMLInputElement>(null);
-    const types = ['userName', 'email', 'password', 'confirmPassword'];
-    const refs = [userNameRef, emailRef, passwordRef, confirmPasswordRef];
+    const types = Object.freeze(['userName', 'email', 'password', 'confirmPassword']);
+    const refs = Object.freeze([userNameRef, emailRef, passwordRef, confirmPasswordRef]);
     const history = useHistory();
     return (
         <main 
-            className='register'>
+            className='main register'>
             <form 
-                id='loginForm' 
-                onSubmit={(event: any) => {onRegisterSubmit(event, stateRegister, setErrorList, types, refs, history)}} 
+                className='form' 
+                onSubmit={(event: any) => {onRegisterSubmit(event, stateRegister, setErrorList, types, refs, history)}}
                 noValidate>
                 <section 
-                    className='labelWrapper'>
+                    className='form__labels'>
                     <label 
-                        className='formLabel' 
+                        className='form__label form__label--username' 
                         htmlFor='userName'>
                         Login
                     </label>
                     <label 
-                        className='formLabel' 
+                        className='form__label form__label--email' 
                         htmlFor='email'>
                         Email
                     </label>
                     <label 
-                        className='formLabel' 
+                        className='form__label form__label--password' 
                         htmlFor='password'>
                         Password
                     </label>
                     <label 
-                        className='formLabel' 
+                        className='form__label form__label--confirm-password' 
                         htmlFor='confirmPassword'>
                         Confirm password
                     </label>
                 </section>
                 <section 
-                    className='inputWrapper'>
+                    className='form__inputs'>
                     <input 
+                        className='form__input form__input--field form__input--username'
                         value={stateRegister.userName} 
                         ref={userNameRef} 
                         onChange={() => {onRegisterInputChange('userName', userNameRef, setErrorList, dispatchRegister)}} 
-                        maxLength={30} 
-                        className='formInput' 
-                        id='userName' 
+                        maxLength={30}
                         name='userName' 
                         type='text'/>
                     <input 
+                        className='form__input form__input--field form__input--email'
                         value={stateRegister.email} 
                         ref={emailRef} 
                         onChange={() => {onRegisterInputChange('email', emailRef, setErrorList, dispatchRegister)}} 
-                        maxLength={320} 
-                        className='formInput' 
-                        id='email' 
+                        maxLength={320}
                         name='email' 
                         type='email'/>
                     <input 
+                        className='form__input form__input--field form__input--password'
                         value={stateRegister.password} 
                         ref={passwordRef} 
                         onChange={() => {onRegisterInputChange('password', passwordRef, setErrorList, dispatchRegister)}} 
                         maxLength={30} 
-                        className='formInput' 
-                        id='password' 
                         name='password' 
                         type='password'/>
                     <input 
+                        className='form__input form__input--field form__input--confirm-password'
                         value={stateRegister.confirmPassword} 
                         ref={confirmPasswordRef} 
                         onChange={() => {onRegisterInputChange('confirmPassword', confirmPasswordRef, setErrorList, dispatchRegister, passwordRef)}} 
-                        maxLength={30} 
-                        className='formInput' 
-                        id='confirmPassword' 
+                        maxLength={30}
                         name='confirmPassword' 
                         type='password'/>
                 </section>
                 <section 
-                    className='validationErrorsWrapper'>
+                    className='form__errors'>
                     <ul 
-                        className='validationErrors'>
+                        className='form__error-list'>
                         {
                             errorList.map(item => item)
                         }
                     </ul>
                 </section>
                 <input 
-                    className='submitButton' 
+                    className='form__input form__input--submit'
                     type='submit' 
                     value='Register'/>
             </form>

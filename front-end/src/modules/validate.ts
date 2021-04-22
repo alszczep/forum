@@ -8,23 +8,23 @@ export const MIN_CHARACTERS = {
     passwordRepeat: 6
 }
 
-export const errorTexts = {
-    userName: {
+export const errorTexts = Object.freeze({
+    userName: Object.freeze({
         length: `Login has to be at least ${MIN_CHARACTERS.userName} characters long`,
         correctness: 'Username can only consist of letters and digits. No symbols or whitespace allowed.'
-    },
-    email: {
+    }),
+    email: Object.freeze({
         length: `Email has to be at least ${MIN_CHARACTERS.email} characters long`,
         correctness: 'Email is incorrect'
-    },
-    password: {
+    }),
+    password: Object.freeze({
         length: `Password has to be at least ${MIN_CHARACTERS.password} characters long`,
         correctness: 'Password has to contain lowercase letter, uppercase letter and a digit'
-    },
-    passwordRepeat: {
+    }),
+    passwordRepeat: Object.freeze({
         correctness: 'Passwords have to match'
-    }
-}
+    })
+})
 
 export const validate = ({ type, newValue, passwordValue }: ValidationArgsInterface): ValidationReturnInterface => {
     let error: string[] = [];

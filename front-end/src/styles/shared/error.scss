@@ -1,8 +1,8 @@
 @import './../mixins';
 
-main.error{
+.error{
     @include flex-box(column, center, center);
-    h1{
+    &__header{
         padding: 20px;
         text-align: center;
     }

@@ -1,0 +1,24 @@
+.comment{
+    @include flex-box(row, flex-start, initial);
+    width: 100%;
+    &__user-box{
+        @include flex-box(column, center, center);
+        border: 0;
+        border-radius: 5px;
+        margin: 5px;
+        width: 20%;
+    }
+    &__content-box{
+        @include flex-box(column, flex-start, initial);
+        width: 80%;
+        border: 0;
+        margin: 5px;
+    }
+    &__content-info{
+        border-radius: 5px 5px 0px 0px;
+        height: 20px;
+    }
+    &__content-text{
+        border-radius: 0px 0px 5px 5px;
+    }
+}

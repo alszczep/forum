@@ -1,0 +1,20 @@
+.threads{
+    &__header-wrapper{
+        @include flex-box(row, flex-end, flex-start);
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    &__header{
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-right: auto;
+    }
+    &__link{
+        margin-top: 10px;
+        margin-right: 3px;
+    }
+    &__button{
+        padding: 2px 10px;
+        border: 0px;
+    }
+}

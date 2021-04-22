@@ -8,27 +8,34 @@ const PageSelect: FC<PageSelectPropsInterface> = ({ dispatchPage, pages, lastPag
     });
     return (
         <ul 
-            className='pageNumbersWrapper'>
+            className='page-select'>
             <HiOutlineChevronDoubleLeft 
-                className='pageNumberButton' 
+                className='page-select__element page-select__element--image' 
                 onClick={() => {dispatchPage({type: 'MIN'})}}/>
             <HiOutlineChevronLeft 
-                className='pageNumberButton' 
+                className='page-select__element page-select__element--image' 
                 onClick={() => {dispatchPage({type: 'DECREMENT'})}}/>
             <select 
-                className='pageList pageNumberButton' 
+                className='page-select__element page-select__element--list' 
                 value={currentPage} 
                 ref={selectRef} 
                 onChange={() => { if(selectRef && selectRef.current) dispatchPage({type: 'SET_PAGE', payload: parseInt(selectRef.current.value)})} }>
                 {options.map((item) => {
-                    return (<option key={item} value={item}>{item}</option>);
+                    return (
+                        <option 
+                            className='page-select__option'
+                            key={item} 
+                            value={item}>
+                            {item}
+                        </option>
+                    );
                 })}
             </select>
             <HiOutlineChevronRight 
-                className='pageNumberButton' 
+                className='page-select__element page-select__element--image' 
                 onClick={() => {dispatchPage({type: 'INCREMENT'})}}/>
             <HiOutlineChevronDoubleRight 
-                className='pageNumberButton' 
+                className='page-select__element page-select__element--image' 
                 onClick={() => {dispatchPage({type: 'MAX'})}}/>
         </ul>
     )

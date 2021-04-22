@@ -1,0 +1,20 @@
+.category{
+    text-decoration: none;
+    &__section{
+        border-radius: 5px;
+        margin: 3px;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+    &__title{
+        margin-top: 0px;
+    }
+    &__desc{
+        margin: 0px;
+    } 
+}
+.category:last-of-type{
+    .category__section{
+        margin-bottom: 3px;
+    }
+}

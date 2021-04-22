@@ -5,19 +5,19 @@ const Comment: FC<CommentInterface> = ({commentId, authorId, content, data, post
     
     return (
         <section 
-            className='commentElement'>
+            className='comment'>
             <section 
-                className='userBox'>
+                className='comment__user-box'>
                 {authorId}
             </section>
             <section 
-                className='contentBox'>
+                className='comment__content-box'>
                 <section 
-                    className='contentInfo'>
+                    className='comment__content-info'>
                     {data}
                 </section>
                 <section 
-                    className='contentText'>
+                    className='comment__content-text'>
                     {content}
                 </section>
             </section>

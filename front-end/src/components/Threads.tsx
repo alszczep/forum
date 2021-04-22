@@ -32,12 +32,12 @@ const Threads: FC= (): JSX.Element => {
         const pageSelectProps = {dispatchPage, ...statePage};
         return (
             <main 
-                className='threads'>
+                className='main threads'>
                 <Header/>
                 <PageSelect 
                     {...pageSelectProps}/>
                 <section 
-                    className='threadsWrapper'>
+                    className='threads__list'>
                 {
                     (data && data.length > 0 && statePage)?
                     calculateListElements(statePage, THREADS_PER_PAGE, undefined, data).map(item => item):
