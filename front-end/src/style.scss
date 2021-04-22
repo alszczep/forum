@@ -1,12 +1,12 @@
+@import 'styles/base.scss';
+@import 'styles/categories.scss';
+@import 'styles/comments.scss';
+@import 'styles/login.scss';
+@import 'styles/register.scss';
+@import 'styles/threads.scss';
+@import 'styles/form.scss';
+@import 'styles/new-thread.scss';
 @import 'styles/theme/day';
 @import 'styles/theme/night';
-@import 'styles/nav';
-@import 'styles/main';
-@import 'styles/variables';
 
-html{
-    body{
-        margin: 0;
-        padding: 0;
-    }
-}
+

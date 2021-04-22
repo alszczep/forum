@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Categories from './components/Categories';
 import Login from './components/Login';
@@ -6,7 +6,7 @@ import Nav from './components/shared/Nav';
 import Comments from './components/Comments';
 import Register from './components/Register';
 import Threads from './components/Threads';
-import NewThread from './components/threads/NewThread';
+import NewThread from './components/NewThread';
 import { UserDataInterface } from './interfaces/UserDataInterface';
 import { useEffect } from 'react';
 import { changeTheme } from './modules/change-theme';

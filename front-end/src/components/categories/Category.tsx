@@ -5,15 +5,16 @@ import { CategoryInterface } from '../../interfaces/CategoryInterface';
 const Category: FC<CategoryInterface> = ({ categoryId, name }:CategoryInterface): JSX.Element => {
     return (
         <Link 
+            className='category'
             to={{pathname: `/threads/${categoryId}`}}>
             <section  
-                className='singleCategory'>
+                className='category__section'>
                 <h2 
-                    className='categoryTitle'>
+                    className='category__title'>
                     {name}
                 </h2>
                 <h4 
-                    className='categoryDesc'>
+                    className='category__desc'>
                     {categoryId}
                 </h4>
             </section>

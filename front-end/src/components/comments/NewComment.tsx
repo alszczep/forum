@@ -10,28 +10,32 @@ const NewComment: FC<any> = ({ dispatchPage, getData }): JSX.Element => {
     if(isUserLoggedIn()){
         return (
             <form 
-                id='newCommentForm' 
+                className='form form--new'
                 onSubmit={(event: any) => {onNewCommentSubmit(event, comment, parseInt(postId), dispatchPage, getData)}}>
                 <label 
+                    className='form__label'
                     htmlFor='comment'>
                     <h3>
                         Comment on this post
                     </h3>
                 </label>
                 <textarea 
+                    className='form__input form__input--textarea form__input--comment'
                     name='comment' 
                     value={comment} 
                     ref={commentRef} 
                     onChange={() => { if(commentRef && commentRef.current) setComment(commentRef.current.value) }}>
                 </textarea>
                 <input 
+                    className='form__input form__input--submit'
                     type='submit' 
                     value='comment'/>
             </form>
         )
     }else
         return (<>
-            <h3>
+            <h3
+                className='comments__no-login-header'>
                 You have to be logged in to comment.
             </h3>
         </>)

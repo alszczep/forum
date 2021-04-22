@@ -2,8 +2,9 @@ import { FC } from 'react';
 
 const Loading: FC = (): JSX.Element => {
     return (
-        <main className='loading'>
-            <h1>
+        <main className='main loading'>
+            <h1
+                className='loading__header'>
                 Loading...
             </h1>
         </main>

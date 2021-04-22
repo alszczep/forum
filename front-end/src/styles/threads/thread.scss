@@ -1,0 +1,22 @@
+.thread{
+    text-decoration: none;
+    width: 100%;
+    &__wrapper{
+        border-radius: 5px;
+        margin: 3px;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+    &__header{
+        margin-top: 0px;
+    }
+    &__author{
+        margin: 0px;
+        font-style: italic;
+    }
+}
+.thread:first-of-type{
+    .thread__wrapper{
+        margin-top: 10px;
+    }
+}

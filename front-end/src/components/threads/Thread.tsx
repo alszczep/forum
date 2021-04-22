@@ -5,16 +5,16 @@ import { ThreadInterface } from '../../interfaces/ThreadInterface';
 const Thread: FC<ThreadInterface> = ({ postId, authorId, title, context, date, categoryId }: ThreadInterface): JSX.Element => {
     return (
         <Link 
+            className='thread'
             to={`/comments/${postId}`}>
             <section 
-                className='threadElement' 
-                id='1'>
+                className='thread__wrapper'>
                 <h2 
-                    className='threadHeader'>
+                    className='thread__header'>
                     {title}
                 </h2>
                 <h4    
-                    className='author'>
+                    className='thread__author'>
                     created by {authorId} on {date}
                 </h4>
             </section>

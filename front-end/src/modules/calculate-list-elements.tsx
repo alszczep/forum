@@ -12,9 +12,17 @@ export const calculateListElements = (statePage: PageStateInterface, per_page: n
         return (statePage.currentPage - 1) * per_page + index;
     }).map((item) => {
         if(commentData)
-            return (<Comment key={commentData[item].commentId} {...commentData[item]}/>);
+            return (
+                <Comment 
+                    key={commentData[item].commentId} 
+                    {...commentData[item]}/>
+            );
         if(threadData)
-            return (<Thread key={threadData[item].postId} {...threadData[item]}/>);
+            return (
+                <Thread 
+                    key={threadData[item].postId} 
+                    {...threadData[item]}/>
+            );
         return undefined;
     });
 }

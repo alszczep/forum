@@ -11,54 +11,51 @@ import { toggleTheme } from '../../modules/nav/toggle-theme';
 const Nav: FC<NavPropsInterface> = ({ setUserData, userData, setTheme, theme }): JSX.Element => {
     const themeImgWrapperRef = useRef<HTMLElement>(null)
     return (
-        <nav>
+        <nav className='navigation'>
             <Link 
                 to='/' 
-                className='mainLink'>
+                className='navigation__link navigation__link--home'>
                 <IoHome 
-                    className='mainPageButton' 
+                    className='navigation__link-icon navigation__link-icon--home' 
                     color='white'/>
             </Link>
             <section 
-                className='themeImgWrapper' 
+                className='navigation__theme' 
                 ref={themeImgWrapperRef} 
                 onClick={() => toggleTheme(theme, themeImgWrapperRef, setTheme)}>
                 <div 
-                    className='themeCircle'>
+                    className='navigation__theme-circle'>
                 </div>
                 <img 
-                    id='dayThemeImg' 
-                    className='themeImages' 
+                    className='navigation__theme-image navigation__theme-image--day' 
                     src={sunImage} 
                     alt='sun'/>
                 <img 
-                    id='nightThemeImg' 
-                    className='themeImages' 
+                    className='navigation__theme-image navigation__theme-image--night' 
                     src={moonImage} 
                     alt='moon'/>
             </section>
             {
                 userData? 
                 <button 
+                    className='navigation__logout-button'
                     onClick={() => {logout(setUserData, userData)}}>
                     Logout
                 </button>: 
                 <>
                     <Link 
-                        to='/login' 
-                        className='loginLink'>
+                        className='navigation__link navigation__link--login'
+                        to='/login'>
                         <h2 
-                            id='loginButton' 
-                            className='navButtons'>
+                            className='navigation__link-header navigation__link-header--login'>
                             LOG IN
                         </h2>
                     </Link>
                     <Link 
-                        to='/register' 
-                        className='registerLink'>
+                        className='navigation__link navigation__link--register'
+                        to='/register'>
                         <h2 
-                            id='registerButton' 
-                            className='navButtons'>
+                            className='navigation__link-header navigation__link-header--register'>
                             REGISTER
                         </h2>
                     </Link>

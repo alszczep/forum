@@ -1,0 +1,10 @@
+@import './threads/header.scss';
+@import './threads/thread.scss';
+
+.threads{
+    @include flex-box(column, flex-start, flex-start);
+    &__list{
+        @include flex-box(column, flex-start, flex-start);
+        width: 100%;
+    }
+}

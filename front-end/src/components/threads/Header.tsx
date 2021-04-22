@@ -5,15 +5,16 @@ const Header: FC= (): JSX.Element => {
     const { categoryId } = useParams<{categoryId: string}>();
     return (
         <section 
-            className='headerWrapper'>
+            className='threads__header-wrapper'>
             <h1 
-                className='threadsHeader'>
+                className='threads__header'>
                 {categoryId}
             </h1>
             <Link 
+                className='threads__link'
                 to={`/newThread/${categoryId}`}>
                 <button 
-                    className='newThreadButton'>
+                    className='threads__button'>
                     new thread
                 </button>
             </Link>

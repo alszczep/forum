@@ -1,12 +1,11 @@
 import { RegisterInterface } from '../../interfaces/RegisterInterface';
-import { PBKDF2 } from 'crypto-js';
 import { fetchData } from '../fetch-data';
 import { convertStringToLi } from "../convert-string-to-li";
 import { validate } from "../validate";
 
 const url = 'https://localhost:5001/api/User/register';
 
-export const onRegisterSubmit = async (event: any, stateRegister: RegisterInterface, setErrorList: React.Dispatch<React.SetStateAction<JSX.Element[]>>, types: string[], refs: React.RefObject<any>[], history: any) => {
+export const onRegisterSubmit = async (event: any, stateRegister: RegisterInterface, setErrorList: React.Dispatch<React.SetStateAction<JSX.Element[]>>, types: readonly string[], refs: readonly React.RefObject<any>[], history: any) => {
     event.preventDefault();
     setErrorList([]);
     let newErrorList: JSX.Element[] = [];
@@ -29,9 +28,7 @@ export const onRegisterSubmit = async (event: any, stateRegister: RegisterInterf
     if(newErrorList.length > 0)
         setErrorList(newErrorList);
     else{
-        //const salt = CryptoJS.lib.WordArray.random(128 / 8);
-        const salt = 'placeholder';
-        let result = await fetchData(url, 'POST', {...stateRegister, password: PBKDF2(stateRegister.password, salt).toString(), confirmPassword: PBKDF2(stateRegister.confirmPassword, salt).toString(), salt: salt});
+        let result = await fetchData(url, 'POST', {...stateRegister, password: stateRegister.password, confirmPassword: stateRegister.confirmPassword});
         console.log(result);
         if(result.succeeded)
             history.push('/')

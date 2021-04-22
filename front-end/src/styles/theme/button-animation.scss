@@ -1,12 +1,12 @@
-nav{
-    section.themeImgWrapper.night{
-        .themeCircle{
+.navigation{
+    &__theme--night{
+        .navigation__theme-circle{
             animation-name: nightThemeAnimation;
             animation-duration: 0.5s;
         }
     }
-    section.themeImgWrapper.day{
-        .themeCircle{
+    &__theme--day{
+        .navigation__theme-circle{
             animation-name: dayThemeAnimation;
             animation-duration: 0.5s;
         }
