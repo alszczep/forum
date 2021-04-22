@@ -30,7 +30,7 @@ namespace ForumProject.Controllers
         public async Task<ActionResult<PostInList>> AddNewPost(PostInList newPost)
         {
            var result= await _postRepository.AddPost(newPost);
-            return Ok();
+            return Ok(result);
         }
 
         [HttpPut("edit", Name = "EditPost")]
