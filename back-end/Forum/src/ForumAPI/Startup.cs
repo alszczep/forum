@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using ForumAPI.Interfaces;
 using ForumAPI.Interfaces.IRepository;
 using ForumAPI.Repository;
@@ -45,10 +46,10 @@ namespace ForumAPI
             services.AddDbContext<ForumDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<IdentityUser, IdentityRole>(config =>
             {
-                config.Password.RequiredLength = 4;
-                config.Password.RequireDigit = false;
-                config.Password.RequireNonAlphanumeric = false;
-                config.Password.RequireUppercase = false;
+                config.Password.RequiredLength = 8;
+                config.Password.RequireDigit = true;
+                config.Password.RequireNonAlphanumeric = true;
+                config.Password.RequireUppercase = true;
             }).AddEntityFrameworkStores<ForumDbContext>().AddDefaultTokenProviders();
 
             services.AddCors(options =>
@@ -75,7 +76,10 @@ namespace ForumAPI
                 config.DefaultPolicy = defaultAuthPolicy;
             });
 
-            services.AddControllers();
+            services.AddControllers().AddFluentValidation(opt=>
+            {
+                opt.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ForumAPI", Version = "v1" });
