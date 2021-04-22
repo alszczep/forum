@@ -14,8 +14,13 @@ const Login : FC<any> = (props): JSX.Element => {
     const passwordRef = useRef<HTMLInputElement>(null);
     const history = useHistory();
     const getData = async() => {
-        props.setUserData({...(await fetchData(url, 'POST', {userName: userName, password: password})), userName: userName});
-        history.push('/');
+        let result = (await fetchData(url, 'POST', {userName: userName, password: password}));
+        if(result.status.succeeded && result.uInfo){
+            props.setUserData({...(result.uInfo), userName: userName});
+            history.push('/');
+        }else{
+            //error
+        }
     }
     return (
         <main 

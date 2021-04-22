@@ -7,6 +7,7 @@ export const onNewCommentSubmit = async (event: any, content: string, postId: nu
     event.preventDefault();
     if(content){
         let result = await fetchData(url, 'POST', {postId: postId, date: '2021-04-10T16:48:37.664Z', content: content});
+        console.log(result);
         //if(result.succeeded)
         await getData();    // to be repaired
         dispatchPage({type: 'MAX'});
