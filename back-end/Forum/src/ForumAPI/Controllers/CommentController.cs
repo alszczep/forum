@@ -30,8 +30,8 @@ namespace ForumAPI.Controllers
         [HttpPost("add", Name = "AddComment")]
         public async Task<ActionResult<CommentInPost>> AddComent(CommentInPost comment)
         {
-           await _commentRepository.AddComment(comment);
-            return Ok();
+           var response= await _commentRepository.AddComment(comment);
+            return Ok(response);
         }
         [HttpPut("edit", Name = "EditComment")]
         public async Task<ActionResult<CommentInPost>> EditComment(CommentInPost comment)

@@ -15,7 +15,7 @@ namespace ForumAPI.Validations
             RuleFor(a => a.UserName).Matches("^[a-zA-Z0-9]*$").MaximumLength(30).NotEmpty().WithMessage("Nazwa użytkownika nie spełnia wymogów");
             RuleFor(a => a.Email).EmailAddress().NotEmpty().WithMessage("Wyrażenie nie jest adresem E-mail");
             RuleFor(a => a.Password).Must(passwordValidation).NotEmpty().WithMessage("Hasło nie spełnia określonych wymogów");
-            RuleFor(a => a.ConfirmPassword).Equal(a => a.Password);
+            //RuleFor(a => a.ConfirmPassword).Equal(a => a.Password);
         }
 
         private bool passwordValidation (string password)
