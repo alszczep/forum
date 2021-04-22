@@ -13,8 +13,10 @@ export const fetchData = async (url: string, method: string, data?:any): Promise
         });
         console.log(response);
         const result = await response.json();
+        console.log(result);
         return result;
     }catch(error){
+        console.log('fetch error', error);
         return null;
     }
 };

@@ -29,10 +29,11 @@ export const onRegisterSubmit = async (event: any, stateRegister: RegisterInterf
         setErrorList(newErrorList);
     else{
         let result = await fetchData(url, 'POST', {...stateRegister, password: stateRegister.password, confirmPassword: stateRegister.confirmPassword});
-        console.log(result);
         if(result.succeeded)
             history.push('/')
-        else
-            setErrorList(convertStringToLi({passed: false, error: result.errors.map((item: any) => item.description)}));
+        else{
+            let propertyNames = Object.getOwnPropertyNames(result.errors)[0];
+            setErrorList(convertStringToLi({passed: false, error: result.errors[propertyNames].map((item: any) => item)}));
+        }
     }
 }
