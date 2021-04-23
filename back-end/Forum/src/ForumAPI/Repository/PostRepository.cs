@@ -35,7 +35,7 @@ namespace ForumAPI.Repository
             newPost.Date = DateTime.Now;
             var mappedNewPost = _mapper.Map<Post>(newPost);
             var response= await AddAsync(mappedNewPost);
-            return response.CategoryId;
+            return response.PostId;
         }
         public async Task<int> EditPost(PostInList newPost)
         {
