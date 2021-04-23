@@ -1,12 +1,11 @@
 @import 'day-variables';
 
-
 body.day{
     color: $globalFontColor;
     background-color: $bodyBgColor;
     .navigation{
         background-color: $headerBgColor;
-        &__link--login:hover, &__link--register:hover{
+        &__link:hover{
             background-color: darken($headerBgColor, 3%);
         }
         &__link{
@@ -43,7 +42,7 @@ body.day{
         }
         .form__input, .threads__button, .page-select__element{
             box-shadow: 0px 0px 1px 1px lighten($pageNumberButtonColor, 4%);
-        }
+        }         
     }
     .category__section{
         color: $mainFontColor;

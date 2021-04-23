@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 import { changeTheme } from './modules/change-theme';
 import { userToSessionStorage } from './modules/user/user-to-session-storage';
 import { loadUserFromSessionStorage } from './modules/user/load-user-from-session-storage';
+import Account from './components/Account';
 
 const App: FC = (): JSX.Element => {
   const [userData, setUserData] = useState<UserDataInterface>();
@@ -42,6 +43,9 @@ const App: FC = (): JSX.Element => {
         </Route>
         <Route path='/comments/:postId'>
           <Comments/>
+        </Route>
+        <Route path='/account'>
+          <Account userData={userData}/>
         </Route>
         <Route path='/'>
           <Categories/>

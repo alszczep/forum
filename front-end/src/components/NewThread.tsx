@@ -4,6 +4,7 @@ import { FC } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { onNewThreadSubmit } from "../modules/threads/on-new-thread-submit";
 import { isUserLoggedIn } from "../modules/user/is-user-logged-in";
+import Error from "./shared/Error";
 
 const NewThread : FC = (): JSX.Element => {
     const { categoryId } = useParams<{categoryId: string}>();
@@ -18,7 +19,8 @@ const NewThread : FC = (): JSX.Element => {
                 className='main new-thread'>
                 <form 
                     className='form form--new' 
-                    onSubmit={(event: any) => {onNewThreadSubmit(event, parseInt(categoryId), title, content, history)}}>
+                    onSubmit={(event: any) => {onNewThreadSubmit(event, parseInt(categoryId), title, content, history)}}
+                    autoComplete='off'>
                     <label 
                         className='form__label'
                         htmlFor='title'>
@@ -55,15 +57,11 @@ const NewThread : FC = (): JSX.Element => {
                 </form>
             </main>
         )
-    }else
-        return (
-            <main 
-                className='newThread'>
-                <h1>
-                    You have to be logged in to create new thread.
-                </h1>
-            </main>
-        )
+    }
+    return (
+        <Error 
+            error={'You have to be logged in to create new thread.'}/>
+    )
 }
 
 export default NewThread;
