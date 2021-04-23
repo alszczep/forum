@@ -4,6 +4,7 @@ import { onRegisterSubmit } from "../modules/register/on-register-submit";
 import { onRegisterInputChange } from "../modules/register/on-register-input-change";
 import { registerReducer } from "../modules/register/register-reducer";
 import { registerInitialState } from "../modules/register/register-initial-state";
+import ValidationErrorList from "./shared/ValidationErrorList";
 
 const Register : FC = (): JSX.Element => {
     const [stateRegister, dispatchRegister] = useReducer(registerReducer, registerInitialState);
@@ -80,15 +81,8 @@ const Register : FC = (): JSX.Element => {
                         name='confirmPassword' 
                         type='password'/>
                 </section>
-                <section 
-                    className='form__errors'>
-                    <ul 
-                        className='form__error-list'>
-                        {
-                            errorList.map(item => item)
-                        }
-                    </ul>
-                </section>
+                <ValidationErrorList 
+                    errorList={errorList}/>
                 <input 
                     className='form__input form__input--submit'
                     type='submit' 

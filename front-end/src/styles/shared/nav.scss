@@ -15,9 +15,12 @@ $navHeight: 70px;
         @include flex-box(column, center, center);
         @include clear-padding-margin;
         height: 100%;
+        width: 15%;
+        background-color: transparent;
+        border: 0;
         text-decoration: none;
     }
-    &__link--home{
+    &__home-link{
         padding-left: 15px;
         padding-right: 15px;
         margin-right: auto;
@@ -26,11 +29,6 @@ $navHeight: 70px;
         margin-left: 10px;
         height: ($navHeight * 0.5);
         width: ($navHeight * 0.5);
-    }
-    &__link--login, &__link--register{
-        width: 15%;
-        background-color: transparent;
-        border: 0;
     }
     &__theme{
         @include flex-box(row, center, center);

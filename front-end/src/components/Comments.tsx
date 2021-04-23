@@ -19,10 +19,14 @@ const Comments: FC= (): JSX.Element => {
     const [data, setData] = useState<CommentInterface[] | null>([]);
     const getData = useCallback(async() => {
         setData(await fetchData(`${url}${postId}`, 'GET'));
+        dispatchPage({type: 'MAX'});
       }, [postId]) 
     useEffect(() => {
         getData()
     }, [getData]);
+    useEffect(() => {
+        console.log(statePage);
+    })
     useEffect(() => {
         if(data && data.length > 0){
             dispatchPage({ type: 'UPDATE_STATE', payload: calculatePagesInitialState(data.length, COMMENTS_PER_PAGE)});

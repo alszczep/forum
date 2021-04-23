@@ -1,0 +1,10 @@
+.account{
+    &__header{
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    &__header--email{
+        word-spacing: 2px;
+    }
+}

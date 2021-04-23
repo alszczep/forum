@@ -13,10 +13,6 @@ const Category: FC<CategoryInterface> = ({ categoryId, name }:CategoryInterface)
                     className='category__title'>
                     {name}
                 </h2>
-                <h4 
-                    className='category__desc'>
-                    {categoryId}
-                </h4>
             </section>
         </Link>
     )

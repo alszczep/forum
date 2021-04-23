@@ -11,7 +11,8 @@ const NewComment: FC<any> = ({ dispatchPage, getData }): JSX.Element => {
         return (
             <form 
                 className='form form--new'
-                onSubmit={(event: any) => {onNewCommentSubmit(event, comment, parseInt(postId), dispatchPage, getData)}}>
+                onSubmit={(event: any) => {onNewCommentSubmit(event, comment, parseInt(postId), dispatchPage, getData, setComment)}}
+                autoComplete='off'>
                 <label 
                     className='form__label'
                     htmlFor='comment'>

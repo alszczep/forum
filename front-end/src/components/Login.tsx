@@ -1,33 +1,22 @@
-import { useState } from "react";
-import { useRef } from "react";
-import { FC } from "react";
-import { fetchData } from "../modules/fetch-data";
+import { FC, useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { onLoginFormSubmit } from "../modules/login/on-login-form-submit";
+import { UserDataInterface } from "../interfaces/UserDataInterface";
+import ValidationErrorList from "./shared/ValidationErrorList";
 
-const url = 'https://localhost:5001/api/User/login';
-
-const Login : FC<any> = (props): JSX.Element => {
+const Login : FC<{setUserData: React.Dispatch<React.SetStateAction<UserDataInterface | undefined>>}> = ({ setUserData }): JSX.Element => {
     const [userName, setUserName] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [errorList, setErrorList] = useState<JSX.Element[]>([]);
     const userNameRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
     const history = useHistory();
-    const getData = async() => {
-        let result = (await fetchData(url, 'POST', {userName: userName, password: password}));
-        if(result.status.succeeded && result.uInfo){
-            props.setUserData({...(result.uInfo), userName: userName});
-            history.push('/');
-        }else{
-            //error
-        }
-    }
     return (
         <main 
             className='main login'>
             <form 
                 className='form' 
-                onSubmit={(event: any) => onLoginFormSubmit(event, userName, password, getData)}
+                onSubmit={(event: any) => onLoginFormSubmit(event, userName, password, setUserData, history, setErrorList)}
                 noValidate>
                 <section 
                     className='form__labels'>
@@ -61,6 +50,7 @@ const Login : FC<any> = (props): JSX.Element => {
                         name='password' 
                         type='password'/>
                 </section>
+                <ValidationErrorList errorList={errorList}/>
                 <input 
                     className='form__input form__input--submit'
                     type='submit' 
